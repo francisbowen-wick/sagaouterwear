@@ -1,0 +1,110 @@
+{% if cart.attributes.flow_metafield_key %}	
+
+
+{% if product.title %}	
+  {%- assign price_varies = product.price_varies -%}	
+  {%- assign available = product.available -%}	
+{% else %}	
+  {%- assign compare_at_price = 1999 -%}	
+  {%- assign price = 1999 -%}	
+  {%- assign price_varies = false -%}	
+  {%- assign available = true -%}	
+{% endif %}	
+  {% include 'flow_metafields_prices' %}	
+{%- assign money_price = price | money_without_trailing_zeros -%}	
+<span class=" bfx-sku hide">{{ product.variants[0].sku }}</span>	
+{% if compare_at_price > price %}	
+  {% if price_varies %}	
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>	
+    <s class="product-price__price bfx-price" data-flow-localize=”item-price-attribute”	
+        data-flow-item-price-attribute=”msrp”>Starting at  {% include 'flow_localized_price', flow_tag_display: 'compare_at' %}</s>	
+    <span class="product-price__price product-price__sale">	
+      <span class="product-price__price bfx-price" data-flow-localize=”item-price”>{% include 'flow_localized_price', flow_tag_display: 'item_price' %}</span>	
+      <span class="product-price__sale-label">{{ 'products.product.on_sale' | t }}</span>	
+    </span>	
+  {% else %}	
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>	
+    <s class="product-price__price bfx-price" data-flow-localize=”item-price-attribute”	
+        data-flow-item-price-attribute=”msrp”>{% include 'flow_localized_price', flow_tag_display: 'compare_at' %}</s>	
+    <span class="product-price__price product-price__sale" data-flow-localize=”item-price”>	
+      {% include 'flow_localized_price', flow_tag_display: 'item_price' %}	
+      <span class="product-price__sale-label">{% if price_adjust < 1 %}{{ 'products.product.pro_sale' | t }}{% else %}{{ 'products.product.on_sale' | t }}{% endif %}</span>	
+    </span>	
+  {% endif %}	
+{% else %}	
+  {% if price_varies %}	
+    <span class="product-price__price bfx-price" data-flow-localize=”item-price”>	
+      {% if price_adjust < 1 %}	
+        <s id="ComparePrice-{{ product.id }}" style="margin-right:10px;" data-flow-localize=”item-price-attribute”	
+        data-flow-item-price-attribute=”msrp”>{% include 'flow_localized_price', flow_tag_display: 'compare_at' %}</s>	
+      {% endif %}	
+      Starting at {% include 'flow_localized_price', flow_tag_display: 'item_price' %}	
+      {% if price_adjust < 1 %}	
+        <span class="product-price__sale-label">{{ 'products.product.pro_sale' | t }}</span>	
+      {% endif %}	
+    </span>	
+  {% else %}	
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>	
+    <span class="product-price__price bfx-price" data-flow-localize=”item-price”>	
+      {% if price_adjust < 1 %}	
+        <s id="ComparePrice-{{ product.id }}" style="margin-right:10px;" data-flow-localize=”item-price-attribute”	
+        data-flow-item-price-attribute=”msrp”>{% include 'flow_localized_price', flow_tag_display: 'compare_at' %}</s>	
+      {% endif %}	
+      {% include 'flow_localized_price', flow_tag_display: 'item_price' %}	
+      {% if price_adjust < 1 %}	
+        <span class="product-price__sale-label">{{ 'products.product.pro_sale' | t }}</span>	
+      {% endif %}	
+    </span>	
+  {% endif %}	
+{% endif %}	
+{% unless available %}	
+  <span class="product-price__sold-out"> | Coming Soon</span>	
+{% endunless %}	
+
+{%else%}
+{% if product.title %}
+  {%- assign price_varies = product.price_varies -%}
+  {%- assign available = product.available -%}
+{% else %}
+  {%- assign compare_at_price = 1999 -%}
+  {%- assign price = 1999 -%}
+  {%- assign price_varies = false -%}
+  {%- assign available = true -%}
+{% endif %}
+
+{%- assign money_price = price | money -%}
+
+{% if compare_at_price > price %}
+  {% if price_varies %}
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+    <s class="product-price__price">{{ compare_at_price | money }}</s>
+    <span class="product-price__price product-price__sale">
+      <span class="product-price__price">{{ money_price }}</span>
+      <span class="product-price__sale-label">{{ 'products.product.on_sale' | t }}</span>
+    </span>
+  {% else %}
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+    <s class="product-price__price">{{ compare_at_price | money }}</s>
+    <span class="product-price__price product-price__sale">
+      {{ money_price }}
+      <span class="product-price__sale-label">{% if price_adjust < 1 %}{{ 'products.product.pro_sale' | t }}{% else %}{{ 'products.product.on_sale' | t }}{% endif %}</span>
+    </span>
+  {% endif %}
+{% else %}
+
+  {% if price_varies %}
+    <span class="product-price__price">{{ money_price }}</span>
+  {% else %}
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+    <span class="product-price__price">{{ money_price }}</span>
+  {% endif %}
+{% endif %}
+
+{% unless available %}
+  {% if product.tags contains "Coming Soon" %}
+  <span class="product-price__coming-soon">{{ 'products.product.coming_soon' | t }}</span>
+  {% else %}
+  <span class="product-price__sold-out">{{ 'products.product.sold_out' | t }}</span>
+  {% endif %}
+{% endunless %}
+{%endif%}

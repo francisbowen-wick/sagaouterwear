@@ -1,0 +1,93 @@
+<style>
+  {% unless section.settings.image == blank and section.settings.parallax_me %}
+    .hero--{{ section.id }} {
+      background-position: {{ section.settings.alignment }};
+    }
+
+    @media screen and (max-width: 576px) {
+      .hero--{{ section.id }} {
+        {% if section.settings.mobile_image != '' %}
+        background-image: url('{{ product.featured_image | img_url: '576x576' }}');
+          background-color:#222;
+        {% else %}
+        background-image: url('{{ product.featured_image | img_url: '576x576' }}');
+          background-color:#222;
+        {% endif %}
+      }
+    }
+
+    @media screen and (min-width: 577px) and (max-width: 768px) {
+      .hero--{{ section.id }} {
+        {% if section.settings.mobile_image != '' %}
+        background-image: url('{{ product.featured_image | img_url: '768x768' }}');
+          background-color:#222;
+        {% else %}
+        background-image: url('{{ product.featured_image | img_url: '768x768' }}');
+          background-color:#222;
+        {% endif %}
+      }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+      .hero--{{ section.id }} {
+        background-image: url('{{ product.featured_image | img_url: '992x992' }}');
+          background-color:#222;
+      }
+    }
+
+    @media screen and (min-width: 993px) and (max-width: 1200px) {
+      .hero--{{ section.id }} {
+        background-image: url('{{ product.featured_image | img_url: '1200x1200' }}');
+          background-color:#222;
+      }
+    }
+
+    @media screen and (min-width: 1201px) {
+      .hero--{{ section.id }} {
+        background-image: url('{{ product.featured_image | img_url: '1200x1200' }}');
+          background-color:#222;
+      }
+    }
+  {% endunless %}
+
+  {% if section.settings.title_color %}
+    .hero--{{ section.id }} .hero__inner h2.mega-title {
+      color: {{ section.settings.title_color }};
+    }
+  {% endif %}
+
+  {% if section.settings.text_color %}
+    .hero--{{ section.id }} .hero__inner .mega-subtitle {
+      color: {{ section.settings.text_color }};
+    }
+  {% endif %}
+
+  {% unless section.settings.overlay %}
+    .animsition.finished .hero--{{ section.id }} .hero__overlay::before {
+      display: none;
+    }
+  {% endunless %}
+</style>
+
+<div class="{{ section.settings.contained }}">
+  <div class="hero hero--{{ section.id }} hero--{{ section.settings.hero_size }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %}">
+    <div class="hero__inner row">
+      <div class="col-60 text-center">
+    	<img src="{{'sagatek.png' | asset_img_url:'200x'}}" style="margin-bottom:40px;">
+      </div>
+      {%assign desc = product.description | split: "<h6>Details</h6>" %}
+      <div class="row">
+      <div class="col-md-20 offset-md-5 text-{{ section.settings.text_align }}">
+          <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+            {{ desc[0] }}
+        </div>
+      </div>
+            <div class="col-md-20 offset-md-10 text-left">
+          <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+            {{ desc[1] }}
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

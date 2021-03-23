@@ -1,0 +1,48 @@
+{%- assign price_adjust = 1 -%}
+{%- assign pro = false -%}
+{%- assign allow_pro_pricing = false -%}
+
+{% if customer and customer.tags contains 'procode' %}
+  {%- assign price_adjust = 0 -%}
+  {%- assign pro = true -%}
+  {% if customer.tags contains 'pro-retail' or customer.tags contains 'pro-industry' or customer.tags contains 'pro-rep' or customer.tags contains 'pro-club' %}
+    {%- assign price_adjust = 0.50 -%}
+  {% elsif customer.tags contains 'pro-employee' %}
+    {%- assign price_adjust = 0.60 -%}
+  {% elsif customer.tags contains 'pro-saga_vp' %}
+    {%- assign price_adjust = 0.65 -%}
+  {% endif %}
+{% endif %}
+
+{%- assign prod = product -%}
+{%- assign price = prod.price -%}
+{%- assign compare_at_price = prod.compare_at_price_min -%}
+{% if template contains 'product' %}
+  {%- assign prod = current_variant -%}
+  {%- assign compare_at_price = prod.compare_at_price -%}
+{% elsif template contains 'cart' %}
+  {%- assign prod = item -%}
+  {%- assign compare_at_price = prod.variant.compare_at_price -%}
+{% endif %}
+{%- assign price = prod.price -%}
+{% unless compare_at_price > 0 %}
+  {%- assign compare_at_price = price -%}
+{% endunless %}
+
+{% unless prod.tags contains 'nosale' %}
+  {%- assign allow_pro_pricing = true -%}
+{% else %}
+  {%- assign price_adjust = 1 -%}
+{% endunless %}
+
+<!-- {{ allow_pro_pricing }} -->
+<!-- {{ price_adjust }} -->
+<!-- {{ pro }} -->
+
+{% if pro and allow_pro_pricing %}
+  {%- assign discount_off = compare_at_price | times: price_adjust -%}
+  {%- assign price = compare_at_price | minus: discount_off -%}
+  {% if prod.price < price %}
+    {%- assign price = prod.price -%}
+  {% endif %}
+{% endif %}

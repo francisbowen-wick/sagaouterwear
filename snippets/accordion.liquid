@@ -1,0 +1,40 @@
+        
+{%- assign description = product.description | split: '<h6>split</h6>' -%}
+        {% if settings.enable_crossclick and product.images.size == prod_image_size %}
+        <div class="product-single__description rte">
+            {{ description[0] }}
+          </div>
+        {% endif %}
+        <div class="accordion" id="product-accordians-list">  
+  <div class="card">
+    <div class="card-header" id="heading-care">
+      <h2 class="mb-0">
+        <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#product-care" aria-expanded="true" aria-controls="collapse-care">
+          Care <span>(Expand)</span>
+        </button>
+      </h2>
+    </div>
+    <div id="product-care" class="collapse" aria-labelledby="heading-care" data-parent="#product-accordians-list">
+      <div class="card-body carebody">
+
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="heading-size-guide">
+      <h2 class="mb-0">
+        <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#product-size-guide" aria-expanded="true" aria-controls="collapse-size-guide">
+          Size Guide <span>(Expand)</span>
+        </button>
+      </h2>
+    </div>
+    <div id="product-size-guide" class="collapse" aria-labelledby="heading-size-guide" data-parent="#product-accordians-list">
+      <div class="card-body sizebody">
+
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .card-body ul {    padding: 0 0 0 15px;}
+</style>

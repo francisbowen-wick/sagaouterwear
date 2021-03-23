@@ -1,0 +1,25 @@
+{% if grid_image_width %}
+  {%- assign grid_image_width_2 = grid_image_width | split:'x' -%}
+  {%- assign grid_image_width_2 = grid_image_width_2[0] | times:  2 | append: 'x' -%}
+{% else %}
+  {%- assign grid_image_width_2 = '1100x' -%}
+{% endif %}
+
+{% include 'pro-code-deals' %}
+
+<div class="grid-view-item{% unless product.available %} product-price--sold-out grid-view-item--sold-out{% endunless %}">
+  <a class="grid-view-item__link animsition-link {{product.selected_or_first_available_variant.option1 | handleize}}" href="{{ product.url | within: collection }}">
+    <div class="grid-view-item__image" style="background-image:url({{ product.featured_image.src | img_url: grid_image_width_2 }});"></div>
+    <div class="h4 grid-view-item__title">{{ product.title | remove: "Women's" | remove: "Men's" }}</div>
+    {% if section.settings.show_vendor %}
+      <div class="grid-view-item__vendor">{{ product.vendor }}</div>
+    {% endif %}
+    <div class="grid-view-item__meta">
+      {% unless product.type == 'Gift Card' %}
+      	{% include 'product-price' %}
+      	{% include 'okendo-reviews-product-rating-summary' %}      
+      {% endunless %}      
+
+    </div>
+  </a>
+</div>

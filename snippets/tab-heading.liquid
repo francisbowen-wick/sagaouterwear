@@ -1,0 +1,1 @@
+<li id="{{ title | handle }}"><a class="looper" href="#tab-{{ loop_index }}">{% if title_override and size_chart != true %}<img src="{{ block.settings.title_image | img_url: '200x' }}" alt="{{ title }}" style="max-height: 25px;" />{% else %}{{ title }}{% endif %}</a></li>

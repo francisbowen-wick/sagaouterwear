@@ -1,0 +1,194 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign curr_type = product.type %}
+{% if product.tags contains "Men's" %}
+  {%- assign gender = 'mens' -%}
+{% elsif product.tags contains "Women's" %}
+  {%- assign gender = 'womens' -%}
+{% endif %}
+{% if curr_type != 'Pant' and curr_type != 'Jacket' %}
+  <style>#shopify-section-{{ section.id }} { display:none; }</style>
+{% else %}
+  <div class="kitcontainer">
+    <h2 style="text-align: center;">COMPLETE YOUR {{ product.title }} KIT</h2>
+    <div class="btn-overlay hidden-md-up">
+      <button class="btn combo-btn" >Buy This Kit</button><br />
+      <span>&nbsp;</span>
+    </div>
+    <div class="{{ gender }}jackets kit-slider">
+      {% if curr_type == 'Jacket' %}
+        {% for variant in product.variants %}
+          {%- assign variant_color = variant.option1 -%}
+          {% unless color_images contains variant.image.src %}      
+            {% capture color_images %}{{ color_images }},{{ variant.image.src }}{% endcapture %}
+            {% include 'kitbuilder-slide', type: 'jacket', currtitle: false %}
+          {% endunless %}
+        {% endfor %}
+      {% else %}
+        {%- assign collect = 'c1' -%}
+        {% if gender == 'womens' %}
+      	  {%- assign collect = 'c3' -%}
+        {% endif %}
+        {%- assign collect_handle = section.settings[collect] -%}
+        {% assign collection = collections[collect_handle] %}
+        {% for product in collection.products %}
+      	  {% for variant in product.variants %}
+      		{% unless color_images contains variant.image.src %}      
+              {% capture color_images %}{{ color_images }},{{ variant.image.src }}{% endcapture %}
+      		  {% include 'kitbuilder-slide', type: 'jacket', currtitle: true %}
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="{{ gender }}pants kit-slider">
+      {% if curr_type == 'Pant' %}
+        {% for variant in product.variants %}
+          {%- assign variant_color = variant.option1 -%}
+          {% unless color_images contains variant.image.src %}      
+            {% capture color_images %}{{ color_images }},{{ variant.image.src }}{% endcapture %}
+            {% include 'kitbuilder-slide', type: 'pant', currtitle: false %}
+          {% endunless %}
+        {% endfor %}
+      {% else %}
+        {%- assign collect = 'c2' -%}
+        {% if gender == 'womens' %}
+      	  {%- assign collect = 'c4' -%}
+        {% endif %}
+        {%- assign collect_handle = section.settings[collect] -%}
+        {% assign collection = collections[collect_handle] %}
+        {%- assign color_images = '' -%}
+        {% for product in collection.products %}
+      	  {% for variant in product.variants %}
+      		{% unless color_images contains variant.image.src %}      
+              {% capture color_images %}{{ color_images }},{{ variant.image.src }}{% endcapture %}
+      		  {% include 'kitbuilder-slide', type: 'pant', currtitle: true %}
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <script>
+    function moveAlong(keys){
+      if (keys.length) {
+        var request = keys.shift(),
+            temp = request,
+            params = {
+              type: 'POST',
+              url: '/cart/add.js',
+              data: temp,
+              dataType: 'json',
+              success: function(line_item) {
+                console.log(line_item);
+                moveAlong(keys);
+              },
+              error: function(jqXHR, status, err) {
+                console.log(jqXHR);
+                console.log(status);
+                console.log(err);
+                moveAlong(keys);
+              }
+            };
+        $.ajax(params);
+      } else {
+        window.location.href = "/cart";
+      }
+    }
+    $('.{{ gender }}{{ curr_type | downcase }}s').on('init', function(event, slick){
+      var $sliderEl = $(this).find('[data-color="{{ current_variant.option1 }}"]:not(.slick-cloned)'),
+          sliderIndex = $sliderEl.data('slick-index');
+      setTimeout(function(){
+        $('.{{ gender }}{{ curr_type | downcase }}s').slick('slickGoTo',sliderIndex);
+      },0);
+    });
+    $('.{{ gender }}jackets').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      centerPadding: '60px',
+      centerMode: true,
+      responsive: [
+        {
+          breakpoint: 1023,
+          settings: {
+            slidesToShow: 1,
+            centerMode: false
+          }
+        }
+      ]
+    });
+    $('.{{ gender }}pants').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      centerMode: true,
+      responsive: [
+        {
+          breakpoint: 1023,
+          settings: {
+            slidesToShow: 1,
+            centerMode: false
+          }
+        }
+      ]
+    });
+    $('.combo-btn').on('click',function(){
+      var curr_vars = $('.kit-slider .slick-current input:checked');
+      if(curr_vars.length < 2) {
+        $(this).closest('div').find('span').text('Pick A Size to Purchase');
+      } else {
+        $(this).find('span').html('&nbsp;');
+        var key_array = [];
+        var key_object = {};
+        $.each(curr_vars, function() {
+          key_object = {
+            id: parseInt($(this).val()),
+            quantity: 1
+          };
+          key_array.push(key_object);
+        });
+        moveAlong(key_array);
+      }
+    });
+  </script>
+{% endif %}
+
+
+{% schema %}
+	{
+    	"name": "Kit Builder",
+    	"class": "index-section kitbuilder",
+    	"settings": [
+      		{
+        		"id": "c1",
+        		"type": "collection",
+        		"label": "Men's Jackets Collection"
+      		},
+      		{
+        		"id": "c2",
+        		"type": "collection",
+        		"label": "Men's Pants Collection"
+      		},
+      		{
+        		"id": "c3",
+        		"type": "collection",
+        		"label": "Women's Jackets Collection"
+      		},
+      		{
+        		"id": "c4",
+        		"type": "collection",
+        		"label": "Women's Pants Collection"
+      		}
+		],
+    	"presets": [{
+      		"name": "Kit Builder",
+      		"category": "Image"
+    	}]
+	}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

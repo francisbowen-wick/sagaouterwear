@@ -1,0 +1,210 @@
+<!doctype html>
+<!--[if IE 9]> <html class="ie9 no-js" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+ 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="google-site-verification" content="WC2JarIOepmX51o5MjMYA45bX3PEFR6IyL86i9_ZxmE" />
+  <meta name="facebook-domain-verification" content="d2agqforaqxin6nqivart6fen92i3z" />
+
+  <meta name="theme-color" content="{{ settings.color_button }}">
+  {% if template contains 'collection' and current_tags %}
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="{{ shop.url }}{{ collection.url }}" />
+  {% else %}
+    <link rel="canonical" href="{{ canonical_url }}" />
+  {% endif %}
+
+  {% if settings.favicon != blank %}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {% endif %}
+
+  {% capture seo_title %}
+    {{ page_title }}
+    {% if current_tags %}
+      {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {% endif %}
+    {% if current_page != 1 %}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {% endif %}
+    {% unless page_title contains shop.name %}
+      &ndash; {{ shop.name }}
+    {% endunless %}
+  {% endcapture %}
+  <title>{{ seo_title }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% include 'social-meta-tags' %}
+  <link rel="stylesheet" href="https://use.typekit.net/maq7hmv.css">
+  {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+  {{ 'inferno-vendor.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'inferno.scss.css' | asset_url | stylesheet_tag }}  
+  {% include 'google-fonts' %}
+
+  <script>
+    var theme = {
+      strings: {
+        addToCart: {{ 'products.product.add_to_cart' | t | json }},
+        comingSoon: {{ 'products.product.coming_soon' | t | json }},
+        soldOut: {{ 'products.product.sold_out' | t | json }},
+        unavailable: {{ 'products.product.unavailable' | t | json }},
+        showMore: {{ 'general.filters.show_more' | t | json }},
+        showLess: {{ 'general.filters.show_less' | t | json }}
+      },
+      moneyFormat: {{ shop.money_format | json }}
+    }
+
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+  </script>
+
+  <!--[if (lte IE 9) ]>{{ 'match-media.min.js' | asset_url | script_tag }}<![endif]-->
+
+  {% if template contains 'customers' %}
+    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><!--<![endif]-->
+    <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
+  {% endif %}
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+	{% include 'flowhead' %}
+  
+  {{ content_for_header }}
+
+  {% if settings.enable_colorswatch %}
+    {% section 'swatch-colors' %}
+  {% endif %}
+    {% include 'wamhead' %}
+  {{ shop.metafields.okendo.ReviewsWidgetStyleTag }}
+{{ shop.metafields.okendo.StyleCustomizations }}
+</head>
+
+<body class="template-{{ template | split: '.' | first }}">
+  {% include 'wambody' %}
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  <div id="SearchDrawer" class="search-bar drawer drawer--top">
+    <div class="search-bar__table">
+      <div class="search-bar__table-cell search-bar__form-wrapper">
+        <form class="search search-bar__form" action="/search" method="get" role="search">
+          <button class="search-bar__submit search__submit btn--link" type="submit">
+            {% include 'icon-search' %}
+            <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
+          </button>
+          <input class="search__input search-bar__input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+        </form>
+      </div>
+      <div class="search-bar__table-cell text-right">
+        <button type="button" class="btn--link search-bar__close js-drawer-close">
+          {% include 'icon-close' %}
+          <span class="icon__fallback-text">{{ 'general.search.close' | t }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {% section 'notification' %}
+
+  <div id="sticky-anchor"></div>
+  <div id="container-header">
+    {% section 'mobile-nav' %}
+    <div id="shopify-section-header">
+      {% include 'header' %}
+    </div>
+  </div>
+
+  <div class="page-container" id="PageContainer">
+
+    {% if template contains 'page' or template contains 'article' %}
+    	{% unless template contains "pro-code" %}
+      {% section 'header-bg' %}
+    	{% endunless %}
+    {% endif %}
+
+    <main class="main-content" id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+  </div>
+  <!-- JavaScript based. Auto SSL. Auto fallback to image -->
+  <!-- Start FastG8 Pixel Tag -->
+  <script type="text/javascript">
+    (function() {
+      var elem = document.createElement('script');
+      elem.src = (document.location.protocol == "https:" ? "https://" : "http://") + "u.fg8dgt.com/pixel?type=js&id=646&cb=" + Math.floor(Math.random() * 100000000);
+      elem.async = true;
+      elem.type = "text/javascript";
+      var scpt = document.getElementsByTagName('script')[0];
+      scpt.parentNode.insertBefore(elem, scpt);
+    })();
+  </script>
+  <noscript>
+    <img src="//u.fg8dgt.com/pixel?type=img&id=646&cb={{ 'now' | date: '%s' }}" style="display: none;" border="0" height="1" width="1"/>
+  </noscript>
+  <!-- End FastG8 Pixel Tag -->
+  <!-- JavaScript based. Auto SSL. Auto fallback to image -->
+  <!-- Start FastG8 Pixel Tag -->
+  <script type="text/javascript">
+    (function() {
+      var elem = document.createElement('script');
+      elem.src = (document.location.protocol == "https:" ? "https://" : "http://") + "u.fg8dgt.com/pixel?type=js&id=649&cb=" + Math.floor(Math.random() * 100000000);
+      elem.async = true;
+      elem.type = "text/javascript";
+      var scpt = document.getElementsByTagName('script')[0];
+      scpt.parentNode.insertBefore(elem, scpt);
+    })();
+  </script>
+  <noscript>
+    <img src="//u.fg8dgt.com/pixel?type=img&id=649&cb={{ 'now' | date: '%s' }}" style="display: none;" border="0" height="1" width="1"/>
+  </noscript>
+  <!-- End FastG8 Pixel Tag -->
+  {% if template contains 'cart' %}
+    <!-- JavaScript based. Auto SSL. Auto fallback to image -->
+    <!-- Start FastG8 Pixel Tag -->
+    <script type="text/javascript">
+      (function() {
+        var elem = document.createElement('script');
+        elem.src = (document.location.protocol == "https:" ? "https://" : "http://") + "u.fg8dgt.com/pixel?type=js&id=647&sku={% for item in cart.items %}{% unless forloop.first %},{% endunless %}{{ item.sku }}{% endfor %}&upa={{ cart.total_price | money_without_currency }}&cb=" + Math.floor(Math.random() * 100000000);
+        elem.async = true;
+        elem.type = "text/javascript";
+        var scpt = document.getElementsByTagName('script')[0];
+        scpt.parentNode.insertBefore(elem, scpt);
+      })();
+    </script>
+    <noscript>
+      <img src="//u.fg8dgt.com/pixel?type=img&id=647&sku={% for item in cart.items %}{% unless forloop.first %},{% endunless %}{{ item.sku }}{% endfor %}&upa={{ cart.total_price | money_without_currency }}&cb={{ "now" | date: "%s" }}" style="display: none;" border="0" height="1" width="1"/>
+    </noscript>
+    <!-- End FastG8 Pixel Tag -->
+  {% endif %}
+  {%if settings.popnote %}
+{% include 'popnote' %}
+{%endif%}
+  
+  {% include 'klaviyo-stock' %}
+  {% include 'klaviyo-flyout' %}
+  {% include 'flowscript' %}
+  {% if settings.cookiepolicy %}
+  {% include 'cookiepolicy' %}
+{% endif %}
+<!--SteelHouse Tracking Pixel-->
+<!-- INSTALL ON ALL PAGES OF SITE-->
+<script type="text/javascript">
+	(function(){"use strict";var e=null,b="4.0.0",
+	n="31783",
+	additional="term=value",
+	t,r,i;try{t=top.document.referer!==""?encodeURIComponent(top.document.referrer.substring(0,2048)):""}catch(o){t=document.referrer!==null?document.referrer.toString().substring(0,2048):""}try{r=window&&window.top&&document.location&&window.top.location===document.location?document.location:window&&window.top&&window.top.location&&""!==window.top.location?window.top.location:document.location}catch(u){r=document.location}try{i=parent.location.href!==""?encodeURIComponent(parent.location.href.toString().substring(0,2048)):""}catch(a){try{i=r!==null?encodeURIComponent(r.toString().substring(0,2048)):""}catch(f){i=""}}var l,c=document.createElement("script"),h=null,p=document.getElementsByTagName("script"),d=Number(p.length)-1,v=document.getElementsByTagName("script")[d];if(typeof l==="undefined"){l=Math.floor(Math.random()*1e17)}h="dx.steelhousemedia.com/spx?"+"dxver="+b+"&shaid="+n+"&tdr="+t+"&plh="+i+"&cb="+l+additional;c.type="text/javascript";c.src=("https:"===document.location.protocol?"https://":"http://")+h;v.parentNode.insertBefore(c,v)})()
+</script>
+</body>
+</html>

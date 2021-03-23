@@ -1,0 +1,186 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+<div class="product-template__container container-fluid" id="ProductSection-{{ product.id }}" data-section-id="{{ product.id }}" data-section-type="product" data-enable-history-state="true" data-crossclick="{% if settings.enable_crossclick %}allow{% endif %}" data-comingsoon="{% if product.tags contains 'Coming Soon' %}true{% else %}false{% endif %}">
+
+  {% include 'richcards' %}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+		  {% include 'flow_metafields_prices' %}
+  <div class="row product-single">
+<div class="hidden-dt col-60">
+      <h1 class="product-single__title text-center">{{ product.title }}</h1>
+
+{% if cart.attributes.flow_metafield_key %}
+      <p class="text-center product-single__price product-single__price-{{ product.id }}{% unless current_variant.available %} product-price--sold-out{% endunless %}">
+                      {% if price_min > price %}
+                             <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                             <s id="ComparePrice-{{ product.id }}" data-flow-localize=”item-price-attribute”
+	        data-flow-item-price-attribute=”msrp”>{% include 'flow_localized_price', flow_tag_display: 'compare_at' %}</s>	
+                             <span class="product-price__price product-price__price-{{ product.id }} product-price__sale product-price__sale--single">	
+                               <span id="ProductPrice-{{ product.id }}" class="bfx-price" data-flow-localize=”item-price”>{% include 'flow_localized_price', flow_tag_display: 'item_price' %}</span>	
+                               <span class="product-price__sale-label product-price__sale-label-{{ product.id }}">{{ 'products.product.on_sale' | t }}</span>	
+                             </span>	
+                         {% else %}	
+                           <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>	
+                           <s id="ComparePrice-{{ product.id }}" class="hide" data-flow-localize=”item-price-attribute”	
+        data-flow-item-price-attribute=”msrp”>{% include 'flow_localized_price', flow_tag_display: 'compare_at' %}</s>	
+                           <span class="product-price__price product-price__price-{{ product.id }}">	
+                             <span id="ProductPrice-{{ product.id }}" class="bfx-price" data-flow-localize=”item-price”>{% include 'flow_localized_price', flow_tag_display: 'item_price' %}</span>	
+                             <span class="product-price__sale-label product-price__sale-label-{{ product.id }} hide">{{ 'products.product.on_sale' | t }}</span>	
+                           </span>	
+                         {% endif %}
+      </p>      
+{%else %}      
+      <p class="text-center product-single__price product-single__price-{{ product.id }}{% unless current_variant.available %} product-price--sold-out{% endunless %}">
+        {% if price_min > price %}
+          <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+          <s id="ComparePrice-{{ product.id }}">{{ price_min | money }}</s>
+          <span class="product-price__price product-price__price-{{ product.id }} product-price__sale product-price__sale--single">
+            <span id="ProductPrice-{{ product.id }}" class="bfx-price">{{ price | money }}</span>
+            <span class="product-price__sale-label product-price__sale-label-{{ product.id }}">{{ 'products.product.on_sale' | t }}</span>
+          </span>
+        {% else %}
+          <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+          <s id="ComparePrice-{{ product.id }}" class="hide">{{ price_min | money }}</s>
+          <span class="product-price__price product-price__price-{{ product.id }}">
+            <span id="ProductPrice-{{ product.id }}" class="bfx-price">{{ price | money }}</span>
+            <span class="product-price__sale-label product-price__sale-label-{{ product.id }} hide">{{ 'products.product.on_sale' | t }}</span>
+          </span>
+        {% endif %}
+      </p>
+{%endif%} 
+    </div>
+    {% section 'product-images' %}
+
+    {% section 'product-template' %}
+  </div>
+</div>
+
+{%- assign product_thumb_size = '1000x' -%}
+{%- assign detail_shots = '' -%}
+{%- assign detail_alts = '' -%}
+{% for image in product.images %}
+  {%- assign image_alt = image.alt | downcase -%}
+  {% if image_alt contains 'detail shot' %}
+	{% capture detail_alts %}{{ detail_alts }}{% unless detail_alts == '' %}||{% endunless %}{{ image_alt | remove: 'detail shot - ' }}{% endcapture %}
+    {% capture detail_shots %}{{ detail_shots }}{% unless detail_shots == '' %},{% endunless %}{{ image.src | img_url: product_thumb_size }}{% endcapture %}
+  {% endif %}
+{% endfor %}
+
+{% if detail_shots != blank %}
+  <div id="sticky-anchor-product-navigation">
+    <div class="product-custom-navigation" id="product-custom-navigation">
+      <div class="container">
+        <ul class="nav nav-tabs text-center" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="hero-tab" data-toggle="tab" href="#shopify-section-hero" role="tab" aria-controls="shopify-section-hero" aria-selected="true">{% include 'icon-details' %} Product Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="shots-tab" data-toggle="tab" href="#product-detail_shots" role="tab" aria-controls="product-detail_shots" aria-selected="false">{% include 'icon-shots' %} Product Gallery</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="shopify-section-hero" role="tabpanel" aria-labelledby="hero-tab">
+  {% capture detail_block %}
+    </div>
+    <div class="tab-pane fade" id="product-detail_shots" role="tabpanel" aria-labelledby="shots-tab">
+      <div id="product-detail_shots">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-60 detail_shots_individual">
+              <div id="detail_shots_gallery">
+                {%- assign detail_images = detail_shots | split: ',' -%}
+                {% for detail_image in detail_images %}
+                  <div><a class="single_detail" href="{{ detail_image | replace: '1000x', '2000x' }}" style="background-image:url({{ detail_image }});"></a></div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('#detail_shots_gallery').slick({
+            infinite: true,
+            dots: false,
+            arrows: true,
+            slidesToShow: 3
+          });
+          $('#detail_shots_gallery').magnificPopup({
+            type: 'image',
+            delegate: 'a',
+            gallery:{
+              enabled:true
+            }
+          });
+        });
+        $('#myTab a').on('click', function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+        })
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+          if($('#product-detail_shots').is(':visible')) {
+            $('#detail_shots_gallery').get(0).slick.setPosition();
+          }
+        })
+        
+        /*
+          $('#detail_shots_nav li').click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            var slideIndex = $(this).data('slick_no');
+            $('#detail_shots_gallery').slick('slickGoTo',parseInt(slideIndex));
+          });
+        */
+      </script>
+    </div>
+  </div>
+  {% endcapture %}
+{% endif %}
+
+{% section 'hero' %}
+
+{{ detail_block }}
+
+{% section 'logo-bar' %}
+{% unless product.tags contains "deadstock"%}
+{% section 'kitbuilder-anomie' %}
+{%endunless%}
+
+{% section 'product-related' %}
+{% section 'instagram' %}
+<div class="container" style="margin-bottom:40px;">
+{% include 'okendo-reviews-widget' %}
+</div>
+{% if collection %}
+  <div class="text-center return-link-wrapper">
+    <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
+      {% include 'icon-arrow-left' %}
+      {{ 'products.product.back_to_collection' | t: title: collection.title }}
+    </a>
+  </div>
+{% endif %}
+
+{% unless product.empty? %}
+  <script type="application/json" id="ProductJson-{{ product.id }}">
+    {{ product | json }}
+  </script>
+{% endunless %}
+
+
+{% section 'product-size' %}
+    {% section 'product-care' %}
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+{% include 'klaviyo-product-tracking' %}

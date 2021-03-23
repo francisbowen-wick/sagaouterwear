@@ -1,0 +1,43 @@
+{% assign vid = false %}
+{% assign vidlink = "" %}
+{% assign bits = image.alt | split: " - " %}
+{% if bits[1] contains "mp4" %}
+	{% assign vid = true %}
+	{% assign vidlink = bits[1] %}
+{% endif %}
+<li class="product-single__thumbnails-item {% for variant in image.variants limit: 1 %}{%- assign variant_color = variant.option1 -%}{%endfor%}{% if variant_color == blank %}{%- assign variant_color = image.alt -%}{% endif %}{% unless product.tags contains "deadstock" %}{% if variant_color != blank %} {{ variant_color | handleize }}{% endif %}{%endunless%}"{% if variant_color != blank %} data-variantcolor="{{ variant_color }}"{% endif %}>
+{% if vid %}
+  <div class="spinoverlay" style="position: absolute;
+    bottom: 20px;
+    right: auto;
+    z-index: 9999;
+    display: inline-block;
+    background: white;
+    margin-left: -36px;">
+    <a href="#vidpop-{{bits[0] | handleize}}" class="{{bits[0] | handleize}}">
+      <img style="padding:20px;" src="{{'spin.svg' | asset_url}}">
+    </a>
+  </div> 
+
+    <div id="vidpop-{{bits[0] | handleize}}" class="mfp-hide" style="width: 100%;margin: 0 auto;text-align: center;">
+    <video class="pvidpop" autoplay loop controls style="margin: 0 auto; text-align: center;">
+      <source src="{{vidlink}}" type="video/mp4">
+    </video>
+    </div>
+  <script>
+    $('.{{bits[0] | handleize}}').magnificPopup({
+      type:'inline',
+      closeBtnInside: true,
+      showCloseBtn: true,
+      enableEscapeKey: true
+    });
+  </script> 
+{% endif %}
+  <a
+    href="{{ image.src | img_url: product_image_size }}"
+    class="text-link product-single__thumbnail product-single__thumbnail--{{ product.id }}"
+    {% for variant in image.variants limit: 1 %}data-varattach="{{ variant.id }}" data-sectionid="{{ product.id }}"{% endfor %}
+    {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size }}"{% endif %}
+    style="background-image:url({{ image.src | img_url: product_thumb_size }});">
+  </a>
+</li>

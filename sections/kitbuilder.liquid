@@ -1,0 +1,229 @@
+<div class="kitcontainer">
+  <div class="gendertags">
+    <a href="#" class="mensselect"><span class="active">Mens Kits></span></a>
+    <a href="#" class="womensselect"><span class="">Womens Kits></span></a>
+  </div>
+    <div class="btn-overlay hidden-md-up">
+      <button class="btn combo-btn" >Buy This Kit</button><br />
+      <span>&nbsp;</span>
+    </div>
+	<div class="mensjackets kit-slider">
+		{% assign collection = collections[section.settings.c1] %}
+        {%- assign color_images = '' -%}
+        {% for product in collection.products %}
+      	  {% for variant in product.variants %}
+      		{% unless color_images contains variant.image.src %}      
+              {% capture color_images %}{{ color_images }},{{ variant.image.src }}{% endcapture %}
+      		  {% include 'kitbuilder-slide', type: 'jacket' %}
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+ 	</div>
+	<div class="menspants kit-slider">
+		{% assign collection = collections[section.settings.c2] %}
+        {%- assign color_images = '' -%}
+        {% for product in collection.products %}
+      	  {% for variant in product.variants %}
+      		{% unless color_images contains variant.image.src %}      
+              {% capture color_images %}{{ color_images }},{{ variant.image.src }}{% endcapture %}
+      		  {% include 'kitbuilder-slide', type: 'pant' %}
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+	</div>
+	<div class="womensjackets kit-slider">
+		{% assign collection = collections[section.settings.c3] %}
+        {%- assign color_images = '' -%}
+        {% for product in collection.products %}
+      	  {% for variant in product.variants %}
+      		{% unless color_images contains variant.image.src %}      
+              {% capture color_images %}{{ color_images }},{{ variant.image.src }}{% endcapture %}
+      		  {% include 'kitbuilder-slide', type: 'jacket' %}
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+ 	</div>
+	<div class="womenspants kit-slider">
+		{% assign collection = collections[section.settings.c4] %}
+        {%- assign color_images = '' -%}
+        {% for product in collection.products %}
+      	  {% for variant in product.variants %}
+      		{% unless color_images contains variant.image.src %}      
+              {% capture color_images %}{{ color_images }},{{ variant.image.src }}{% endcapture %}
+      		  {% include 'kitbuilder-slide', type: 'pant' %}
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+	</div>
+</div>
+<script>
+  $('.mensjackets').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+    centerPadding: '60px',
+  centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 1,
+          centerMode: false
+        }
+      }
+    ]
+});
+  $('.menspants').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 1,
+          centerMode: false
+        }
+      }
+    ]
+});
+  $('.womensjackets').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 1,
+          centerMode: false
+        }
+      }
+    ]  
+});
+  $('.womenspants').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 1,
+          centerMode: false
+        }
+      }
+    ]
+});
+  	$( ".mensselect" ).click(function() {
+        $(".mensselect span").addClass("active");
+      	$(".womensselect span").removeClass("active");
+  		$(".mensjackets").fadeIn( "slow" );
+      	$(".menspants").fadeIn( "slow" );
+      	$(".womenspants").hide();
+      	$(".womensjackets").hide();
+	});
+   	$( ".womensselect" ).click(function() {
+      	$(".womensselect span").addClass("active");
+      	$(".mensselect span").removeClass("active");
+  		$(".mensjackets").hide();
+      	$(".menspants").hide();
+      	$(".womenspants").fadeIn( "slow" );
+      	$(".womensjackets").fadeIn( "slow" );
+	});
+  
+   	$( window ).on( "load", function() {
+      	$(".womenspants").hide();
+      	$(".womensjackets").hide();
+ 	});
+  
+</script>
+
+
+  <script>
+    function moveAlong(keys){
+      if (keys.length) {
+        var request = keys.shift(),
+            temp = request,
+            params = {
+              type: 'POST',
+              url: '/cart/add.js',
+              data: temp,
+              dataType: 'json',
+              success: function(line_item) {
+                console.log(line_item);
+                moveAlong(keys);
+              },
+              error: function(jqXHR, status, err) {
+                console.log(jqXHR);
+                console.log(status);
+                console.log(err);
+                moveAlong(keys);
+              }
+            };
+        $.ajax(params);
+      } else {
+        window.location.href = "/cart";
+      }
+    }
+    $('.combo-btn').on('click',function(){
+      var curr_vars = $('.kit-slider .slick-current:visible input:checked');
+      if(curr_vars.length < 2) {
+        $(this).closest('div').find('span').text('Pick A Size to Purchase');
+      } else {
+        $(this).find('span').html('&nbsp;');
+        var key_array = [];
+        var key_object = {};
+        $.each(curr_vars, function() {
+          key_object = {
+            id: parseInt($(this).val()),
+            quantity: 1
+          };
+          key_array.push(key_object);
+        });
+        moveAlong(key_array);
+      }
+    });
+  </script>
+
+{% schema %}
+	{
+    	"name": "Kit Builder",
+    	"class": "index-section kitbuilder",
+    	"settings": [
+      		{
+        		"id": "c1",
+        		"type": "collection",
+        		"label": "Men's Jackets Collection"
+      		},
+      		{
+        		"id": "c2",
+        		"type": "collection",
+        		"label": "Men's Pants Collection"
+      		},
+      		{
+        		"id": "c3",
+        		"type": "collection",
+        		"label": "Women's Jackets Collection"
+      		},
+      		{
+        		"id": "c4",
+        		"type": "collection",
+        		"label": "Women's Pants Collection"
+      		}
+		],
+    	"presets": [{
+      		"name": "Kit Builder",
+      		"category": "Image"
+    	}]
+	}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

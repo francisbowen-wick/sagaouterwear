@@ -1,0 +1,56 @@
+{%assign careneed = false %}
+{%assign caretag = "" %}
+{%for tag in product.tags %}
+	{% if tag contains "care-" %}
+		{% assign careneed = true %}
+		{% assign caretag = tag %}
+		{% break %}
+	{% endif %}
+{%endfor%}
+
+{% if careneed %}
+	{% for block in section.blocks %}
+		{% if block.settings.product_tag == caretag %}
+            {% assign article = articles[block.settings.care_blog] %}
+			<div class="careexp">{{article.content}}</div>
+			<script>
+              $(".careexp").prependTo(".carebody");
+			</script>
+		{% endif %}
+	{% endfor %}
+{% else %}
+<script>
+  $('#heading-care').parent().hide();
+</script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Product Care",
+   "blocks":[
+    {
+      "name":"Product Group",
+      "type":"grid",
+      "settings": [
+         {
+            "type":"text",
+            "id":"title",
+            "label":"Group Title",
+            "info":"Just for ease of sorting through these."
+         },
+			{
+            "type":"text",
+            "id":"product_tag",
+            "label":"Product Tag",
+            "info":"The tag a product needs for this to get added"
+         },
+          {
+             "type": "article",
+             "id": "care_blog",
+             "label": "Care Blog Post to add"
+          }
+      ]
+    }
+    ]
+  }
+{% endschema %}

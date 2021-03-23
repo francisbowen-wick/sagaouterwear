@@ -1,0 +1,23 @@
+<div class="container-fluid" style="margin-top:20px;">
+  <div class="row">
+    {% for collection in collections %}
+      <div class="col-xl-20 col-md-30">
+        {% include 'collection-grid-item' %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .collection-grid-item__overlay {
+    background-position: center center;
+    
+}
+  .collection-grid-item__link {
+    transition: all .2s ease-in-out;
+  }
+  
+    .collection-grid-item__link:hover {
+    transform: scale(1.03);
+}
+</style>

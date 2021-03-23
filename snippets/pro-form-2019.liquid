@@ -1,0 +1,487 @@
+<div class="container">
+  <div class="row">
+    <article class="col-60">
+      <div class="row procode-content">
+        <div class="col-md-30 offset-md-15">
+          {{ page.content }}
+        </div>
+      </div>
+      <p id="error_alert" class="error hide"></p>
+      {% comment %}
+        <div id="procode_route" class="single_form text-center">
+          <h2>Have an Account?</h2>
+          <p><a class="datashow" href="#" data-show="customer_login">Sign In</a></p>
+          <p><a class="datashow" href="#" data-show="customer_register">Create an Account</a></p>
+        </div>
+      {% endcomment %}
+      {% unless customer %}
+        <div id="login_forms" class="row single_form">
+          <div class="col-md-20 offset-md-10">
+            <div id="customer_login" class="form-vertical">
+              <h2 class="text-center">{{ 'customer.login.title' | t }}</h2>
+
+              <form class="integro">
+                <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+                <input type="email" name="customer[email]" id="CustomerEmail" class="{% if form.errors contains 'email' %} input--error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+
+                <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+                <input type="password" value="" name="customer[password]" id="CustomerPassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+
+                <div class="mt-15 text-center">
+                  <p><a class="datashow" href="#" data-show="RecoverPasswordForm">{{ 'customer.login.forgot_password' | t }}</a></p>
+                  <button type="submit" class="btn zapsubmit">{{ 'customer.login.sign_in' | t }}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-20">
+            <div id="customer_register" class="form-vertical">
+              <form class="integro">
+                <h2 class="text-center">{{ 'customer.register.title' | t }}</h2>
+
+                <label for="FirstName">{{ 'customer.register.first_name' | t }}</label>
+                <input type="text" name="customer[first_name]" id="FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autofocus>
+
+                <label for="LastName">{{ 'customer.register.last_name' | t }}</label>
+                <input type="text" name="customer[last_name]" id="LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+
+                <label for="Email">{{ 'customer.register.email' | t }}</label>
+                <input type="email" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+                <label for="CreatePassword">{{ 'customer.register.password' | t }}</label>
+                <input type="password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+
+                <div class="mt-15 text-center">
+                  <button type="submit" class="btn zapsubmit">{{ 'customer.register.submit' | t }}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-20 offset-md-20">
+            <div id="RecoverPasswordForm" class="single_form hide">
+
+              <h2 class="text-center">{{ 'customer.recover_password.title' | t }}</h2>
+              <p>{{ 'customer.recover_password.subtext' | t }}</p>
+
+              <div class="form-vertical">
+                {% form 'recover_customer_password' %}
+
+                  {{ form.errors | default_errors }}
+
+                  {% if form.posted_successfully? %}
+                    <span class="hide reset-password-success"></span>
+                  {% endif %}
+
+                  <label for="RecoverEmail">{{ 'customer.recover_password.email' | t }}</label>
+                  <input type="email" value="" name="email" id="RecoverEmail" class="input-full"autocorrect="off" autocapitalize="off">
+
+                  <p>
+                    <input type="submit" class="btn" value="{{ 'customer.recover_password.submit' | t }}">
+                  </p>
+
+                  <p><a id="HideRecoverPasswordLink" class="datashow passwordreset-toggle" href="#" data-show="login_forms">{{ 'customer.recover_password.cancel' | t }}</a></p>
+                {% endform %}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      {% endunless %}
+      <div class="row">
+        <div class="col-md-30 offset-md-15">
+          <div id="procode_exists" class="single_form text-center{% unless customer %} hide{% endunless %}">
+            <h2>Have an existing PRO CODE?</h2>
+            <a class="datashow btn" href="#" data-show="FjallProLogin" data-remove="rep_entry">No</a>
+            <a class="datashow btn" href="#" data-show="FjallProLogin" data-remove="pro_code_entry">Yes</a>
+          </div>
+          <div id="FjallProLogin" class="single_form hide">
+            <div class="form-vertical">
+              <h2 class="text-center"><span class="pro_code_entry">Pro Account Application</span><span class="rep_entry">Pro Account Activation</span></h2>
+              <form class="integro integro2">
+                <input type="hidden" name="customer[id]" id="customer_id" value="{{ customer.id }}" />
+                <label class="hide" for="customer_id">Corporate<br></label><br> 
+
+                <label for="phone2" class="label--hidden">Phone</label>
+                <input type="text" name="customer_address[phone]" id="phone2" class="login_remove" placeholder="Phone" value="{{ customer.phone }}">  
+
+                <div class="rep_entry">
+                  <label for="rep2" class="label--hidden">Rep</label>
+                  <input type="text" id="rep2" name="customer[note][rep]" placeholder="Rep">
+                </div>
+
+
+                <div class="pro_code_entry">
+                  <div class="product-form__item">
+                    <label for="logo">Upload Professional Signature or Business Card Proof</label>
+                    <input id="logo" type="file" /> 
+
+                    <span class="error_message"></span>
+                    <small>Allowed formats: .jpeg, .jpg, .png, .gif, .bmp, .pdf, .doc</small>
+                    <button class="uploaded btn realsubmit">Upload</button>
+
+                    <label for="file_name" class="label--hidden">File Name</label>
+                    <input id="file_name" type="hidden" name="customer[note][File Name]" />
+                    <label for="file_link" class="label--hidden">File Link</label>
+                    <input id="file_link" type="hidden" name="customer[note][File Link]" /> 
+                    <div class="hide alert_shown">
+                      Please pick a paystub or business card and click Upload
+                    </div>
+                  </div>
+
+                  <label for="comments" class="label--hidden">Proof</label>
+                  <textarea id="comments" name="customer[note][Comments]" rows="5" cols="50" wrap="soft" placeholder="Additional Comments"></textarea>
+                </div>
+
+
+                <label for="team2" class="label--hidden">Team</label>
+                <input type="text" name="customer[note][Team]" id="team2" placeholder="Company / team / organization" value="">  
+
+                <h5>Pro Classification</h5>
+                <input type="radio" name="customer[tags][tag-2]" id="proclass1_2" value="Industry">
+                <label for="proclass1_2">Industry<br></label><br> 
+
+                <input type="radio" name="customer[tags][tag-2]" id="proclass2_2" value="Professional">
+                <label for="proclass2_2">Professional<br></label><br> 
+
+                <input type="radio" name="customer[tags][tag-2]" id="proclass3_2" value="Shop">
+                <label for="proclass3_2">Shop<br></label><br>
+
+                <input type="radio" name="customer[tags][tag-2]" id="proclass4_2" value="GBG SAL Employee">
+                <label for="proclass4_2">GBG SAL Employee<br></label><br>
+
+                <div class="rep_entry">
+                  <label for="code2" class="label--hidden">pre-approved code</label>
+                  <input type="text" id="code2" name="customer[note][code]" placeholder="Please enter your pre-approved Pro Code" required> 
+                </div>
+
+                <button type="submit" class="btn zapsubmit"><span class="pro_code_entry">Apply for a Pro Account</span><span class="rep_entry">Activate Pro Account</span></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+<div id="delayedlogin" class="hide">
+  {% form 'customer_login' %}
+    {{ form.errors | default_errors }}
+    <div style="text-align:left;">
+      <label for="Email_Delayed" class="label--hidden">{{ 'customer.register.email' | t }}</label>
+      <input type="email" name="customer[email]" id="Email_Delayed" class="{% if form.errors contains 'email' %} input--error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off" required>
+
+      <label for="Password_Delayed" class="label--hidden">{{ 'customer.register.password' | t }}</label>
+      <input type="password" name="customer[password]" id="Password_Delayed" class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="{{ 'customer.register.password' | t }}" required>
+
+      <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn realsubmit">
+    </div>
+  {% endform %}
+</div>
+<style>
+  
+  .form-vertical input.hide,
+  .form-vertical select.hide,
+  .form-vertical textarea.hide,
+  .form-vertical label.hide {
+    display: none;
+  }
+  .btn.uploaded {
+    background-color: #fff;
+    color: #3d4246;
+    border-color: #e8e9eb;
+    display: block;
+  }
+  /* entire container, keeps perspective */
+  .flip-container {
+    perspective: 1000px;
+  }
+  .flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+  }
+  .flip-container,
+  .front,
+  .back {
+    width: 100%;
+    height: 1350px;
+    background: #FFF;
+  }
+  .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .front,
+  .back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+  }
+  .back {
+    transform: rotateY(180deg);
+  }
+  .error {
+    background: #c00;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 15px;
+    
+    span {
+      display: block;
+    }
+  }
+  .product-form__item {
+    small {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .error_message {
+      display: none;
+      text-transform: uppercase;
+      color: #c00;
+    }
+    
+    &.invalid .error_message {
+      display: block;
+    }
+  }
+  input.invalid {
+    border: 1px solid #c00;
+  }
+  .zapsubmit {
+    position: relative;
+  }
+  .zapsubmit.spinning {
+      padding-right: 40px;
+  }
+  .zapsubmit.spinning:after {
+    content: '';
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    box-shadow: 0px 0px 0 1px #FFFFFF;
+    border-radius: 50%;
+    animation: rotate360 .5s infinite linear, exist .1s forwards ease;
+  }
+  .zapsubmit.spinning:before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    right: 6px;
+    top: 50%;
+    border: 2px #FFFFFF;
+    border-right: 3px solid #2d2d2d;
+    animation: rotate360 .5s infinite linear, exist .1s forwards ease ;
+  }
+  @keyframes rotate360 { 
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes exist { 
+    100% {
+      width: 15px;
+      height: 15px;
+      margin: -8px 5px 0 0;
+    }
+  }
+
+.wholesale_notification {
+  background: $color-body-text;
+  color: $color-body;
+  padding: 10px 0;
+  margin-bottom:20px;
+}
+
+
+.template-index .wholesale_notification {
+margin-bottom:0px !important;
+}
+</style>
+<script>
+  $('a.datashow').on('click',function(e){
+    e.preventDefault();
+    var og_div = $(this).closest('.single_form'),
+        connect = '#' + $(this).data('show'),
+        removal = $(this).data('remove');
+    $(og_div).hide();
+    $(connect).show();
+    if(removal) {
+      $('.' + removal).remove();
+    }
+  });
+  $('#shopify-section-{{ section.id }} input[type="text"]:not(.optional),input[type="password"]').on('blur', function() {
+    var input = $(this);
+    var is_name = input.val();
+    if(is_name){
+      input.removeClass("invalid").addClass("valid");
+    } else {
+      input.removeClass("valid").addClass("invalid");
+    }
+  });
+  $('#shopify-section-{{ section.id }} input[type="email"]').on('blur', function() {
+    var input=$(this);
+    var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var is_email=re.test(input.val());
+    if(is_email){input.removeClass("invalid").addClass("valid");}
+    else{input.removeClass("valid").addClass("invalid");}
+  });
+
+  function inputcheck($form){
+    var error_free = true,
+        form_inputs = $form.find('input[type="text"]:visible:not(.optional),input[type="password"]:visible'),
+        form_radios = $form.find('input[type="radio"]:visible'),
+        form_fileupload = $form.find('input#file_link');
+    console.log(form_fileupload);
+    $.each(form_inputs, function(index,input){
+      var valid = $(input).hasClass("valid") || $(input).val() != '';
+      if (!valid){error_free=false; $(this).addClass('invalid'); $form.find('.zapsubmit').removeClass('spinning'); /* console.log($(input)); */ }
+    });
+    $.each(form_radios, function(){
+      var name = $(this).attr("name");
+      if($('input:radio[name="'+ name +'"]:checked').length == 0){ error_free = false; $(this).addClass('invalid'); $form.find('.zapsubmit').removeClass('spinning'); /* console.log($(this)); */ }
+    });
+    if($(form_fileupload).length > 0 &&  $(form_fileupload).val() == '') {
+      $('#logo').addClass('invalid'); $('#logo').closest('div').addClass('showalert'); error_free = false; $form.find('.zapsubmit').removeClass('spinning');
+    }
+    return error_free;
+  }
+
+  $( ".uploaded" ).click(function(e) {
+    e.preventDefault();
+    $(".uploaded").html('Now Uploading...');
+    var $logo = $(this).closest('.product-form__item'),
+        logopart = $logo.find('#logo'),
+        $error = $('.error');
+    $error.hide().text('');
+    if(logopart.length > 0 && logopart.val() != '') {
+      var logosplitter = logopart.prop('files')[0],
+          timestamp = new Date().getTime(),
+          logoname = logosplitter.name,
+          encoded = encodeURIComponent(logoname),
+          form = this.$form,
+          t = this;
+      
+      var form_data = new FormData();                  
+      form_data.append('file', logosplitter);
+      logopart.closest('.product-form__item').removeClass('invalid');
+
+      $.ajax({
+        url: 'https://sagaapp.wpengine.com/dbapp/connect.php',
+        type: 'post',
+        data: form_data,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          console.log(data['name']);
+          console.log(data);
+          if (data.error) {
+            logopart.val('');
+            logopart.closest('.product-form__item').addClass('invalid').find('.error_message').text(data.error.msg);
+            $(".uploaded").text('Upload');
+          } else {
+            $logo.find('#file_name').val(data['name']);
+            $logo.find('#file_link').val(data['url']);
+            $(".uploaded").text('Your file is successfully uploaded');
+            $logo.closest('form').find('.zapsubmit').attr('disabled',false);
+          }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+          console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+      });
+    }
+  });
+  $('#adjusters input').on('change',function(){
+    var div_toggle = $(this).val(),
+        $div_toggle_remove = $('.'+div_toggle+'_remove'),
+        $div_toggle_add = $('.'+div_toggle+'_add');
+    if(div_toggle == 'login') {
+      
+    }
+    if($(this).prop("checked")) {
+      $div_toggle_remove.addClass('hide');
+      $div_toggle_add.removeClass('hide');
+    } else {
+      $div_toggle_remove.removeClass('hide');
+      $div_toggle_add.addClass('hide');
+    }
+  });
+  $('form.integro').on('submit',function(e){
+    e.preventDefault();
+    var $form = $(this),
+        $error = $('#error_alert'),
+    	$loadingbtn = $form.find('.zapsubmit'),
+        integro_url = '//hook.integromat.com/f7w97xgs3i9mlgjem4ybpxixak86zklf';
+    $error.hide().html('');
+    $loadingbtn.addClass('spinning');
+    if (inputcheck($(this))) {
+      var jsonData = $(this).find('input:not(".hide"),select:not(".hide"),textarea:not(".hide")').serialize();
+      $.ajax({
+        type: "POST",
+        url: integro_url,
+        dataType: "json",
+        data: jsonData,
+        success: function(data) {
+          $loadingbtn.removeClass('spinning');
+          console.log(data);
+          if(data.success) {
+            if(data.success == 'Fake Logged In') {
+              $('#customer_id').val(data.customer_id);
+              $('#Email_Delayed').val($form.find('input[name="customer[email]"]').val());
+              $('#Password_Delayed').val($form.find('input[name="customer[password]"]').val());
+              $form.closest('.single_form ').hide();
+              $('#procode_exists').show();
+            } else if(data.success == 'Application Received') {
+              $form.html('<h3>Thanks for your interest!</h3><p>We will be reviewing your info and contacting you shortly.</p><a class="btn" href="/collections/mens-jackets">Shop Our Most Popular</a>')
+            } else {
+              $('#delayedlogin form').submit();
+            }
+          } else {
+            if(data.errors) {
+              $error.show();
+              $.each(data.errors,function(key,value){
+                if (~key.indexOf('.')) {
+                  key = key.replace('.', ' ');
+                }
+                var error_line = key +' '+ value;
+                $error.append('<span>'+ error_line +'</span>');
+              });
+            } else if(data.error) {
+              $error.show().text(data.error);
+            } else {
+              $error.show().text('Unknown error, please refresh');
+            }
+            $('html,body').animate({
+              scrollTop: $error.offset().top - 50
+            }, 200);
+          }
+        },
+        fail: function(jqXHR, textStatus) {
+          console.log(jqXHR + ' -- ' +textStatus);
+          $loadingbtn.removeClass('spinning');
+          alert('Process failed, please reload the page and try again');
+        }
+      });
+    } else {
+      $error.show().text('The form must be completely filled out');
+      $('html,body').animate({
+        scrollTop: $error.offset().top - 50
+      }, 200);
+    }
+    
+  });
+</script>

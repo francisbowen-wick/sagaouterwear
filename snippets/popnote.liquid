@@ -1,0 +1,31 @@
+  <div id="popnote" class="white-popup mfp-hide mfp-with-anim">
+    <div class="row">
+      <div class="col-md-60">
+        {% if settings.poptitle != blank %}
+          <h3>{{ settings.poptitle }}</h3>
+          <hr />
+        {% endif %}
+        {% if settings.poptext != blank %}
+          <p>{{ settings.poptext }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <script>
+      if(Cookies.get('popnote') != 'true') {
+        Cookies.set('popnote', 'true', { expires: 1 });
+        $.magnificPopup.open({
+          removalDelay: 1000,
+          callbacks: {
+            beforeOpen: function() {
+              this.st.mainClass = 'mfp-move-horizontal'
+            }
+          },
+          items: {
+            src: '#popnote',
+            type: 'inline'
+          }
+        });
+      }
+  </script>

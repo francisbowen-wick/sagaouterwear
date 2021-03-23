@@ -1,0 +1,194 @@
+{%assign sizeneed = false %}
+{%assign sizetag = "" %}
+{%for tag in product.tags %}
+	{% if tag contains "size-" %}
+		{% assign sizeneed = true %}
+		{% assign sizetag = tag %}
+		{% break %}
+	{% endif %}
+{%endfor%}
+
+{% if sizeneed %}
+	{% for block in section.blocks %}
+		{% if block.settings.title == sizetag %}
+			<div class="sizeexp">
+              	{% if block.settings.copytitle != blank %}<h4>{{block.settings.copytitle}}</h4>{% endif %}
+              	{% if block.settings.copytitle != blank %}{{block.settings.copytext}}<br/>{% endif %}
+              
+              <a class="sizein" href="#sizein"><strong>Inches</strong></a> | <a class="sizecm" href="#sizecm">Centimeters</a>
+              	<table class="sizeinches">
+                 {%if block.settings.in1 != blank %} <tr>{% assign inrow1 = block.settings.in1 | split: "," %}
+                    {% for cell in inrow1 %}<th>{{cell}}</th>{%endfor%}
+                  </tr>{%endif%}
+                  {%if block.settings.in2 != blank %}<tr>{% assign inrow2 = block.settings.in2 | split: "," %}
+                    {% for cell in inrow2 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+                  {%if block.settings.in3 != blank %}<tr>{% assign inrow3 = block.settings.in3 | split: "," %}
+                    {% for cell in inrow3 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+                  {%if block.settings.in4 != blank %}<tr>{% assign inrow4 = block.settings.in4 | split: "," %}
+                    {% for cell in inrow4 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+                  {%if block.settings.in5 != blank %}<tr>{% assign inrow5 = block.settings.in5 | split: "," %}
+                    {% for cell in inrow5 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+                  {%if block.settings.in6 != blank %}<tr>{% assign inrow6 = block.settings.in6 | split: "," %}
+                    {% for cell in inrow6 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+              </table>
+              <table class="sizecentimeters" style="display:none;">
+                  {%if block.settings.cm1 != blank %}<tr>{% assign cmrow1 = block.settings.cm1 | split: "," %}
+                    {% for cell in cmrow1 %}<th>{{cell}}</th>{%endfor%}
+                  </tr>{% endif %}
+                   {%if block.settings.cm2 != blank %}<tr>{% assign cmrow2 = block.settings.cm2 | split: "," %}
+                    {% for cell in cmrow2 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+                   {%if block.settings.cm3 != blank %}<tr>{% assign cmrow3 = block.settings.cm3 | split: "," %}
+                    {% for cell in cmrow3 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+                   {%if block.settings.cm4 != blank %}<tr>{% assign cmrow4 = block.settings.cm4 | split: "," %}
+                    {% for cell in cmrow4 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+                   {%if block.settings.cm5 != blank %}<tr>{% assign cmrow5 = block.settings.cm5 | split: "," %}
+                    {% for cell in cmrow5 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+                   {%if block.settings.cm6 != blank %}<tr>{% assign cmrow6 = block.settings.cm6 | split: "," %}
+                    {% for cell in cmrow6 %}<td>{{cell}}</td>{%endfor%}
+                  </tr>{% endif %}
+              </table>
+              {% if block.settings.moreinfo and block.settings.buttontext != blank %}<a href="{{block.settings.moreinfo}}" class="btn">{{block.settings.buttontext}}</a>{%endif%}
+			</div>
+			<script>
+              $(".sizeexp").prependTo(".sizebody");
+              $( ".sizein" ).click(function() {
+               		$(this).wrapInner("<strong />");
+                	$('.sizeinches').show();
+                	$('.sizecentimeters').hide();
+                	$(".sizecm > strong").contents().unwrap();
+              });
+              $( ".sizecm" ).click(function() {
+               		$(this).wrapInner("<strong />");
+                	$('.sizeinches').hide();
+                	$('.sizecentimeters').show();
+                	$(".sizein > strong").contents().unwrap();
+              });
+			</script>
+			<style>
+              .sizeexp th {background-color:#f7f7f7;border:1px solid;padding:2px;}
+              .sizeexp td {border:1px solid;padding:2px;}
+			</style>
+		{% endif %}
+	{% endfor %}
+{% else %}
+<script>
+  $('#heading-size-guide').parent().hide();
+</script>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Size Charts",
+   "blocks":[
+    {
+      "name":"Grid",
+      "type":"grid",
+      "settings": [
+         {
+            "type":"text",
+            "id":"title",
+            "label":"Product Tag"
+         },
+         {
+            "type":"text",
+            "id":"copytitle",
+            "label":"Copy title"
+         },
+         {
+            "type":"richtext",
+            "id":"copytext",
+            "label":"Explanatory Copy"
+         },
+         {
+            "type":"header",
+            "content":"Inches Grid"
+         },
+         {
+            "type":"textarea",
+            "id":"in1",
+            "label":"Row 1 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"in2",
+            "label":"Row 2 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"in3",
+            "label":"Row 3 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"in4",
+            "label":"Row 4 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"in5",
+            "label":"Row 5 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"in6",
+            "label":"Row 6 values (CSV)"
+         },
+         {
+            "type":"header",
+            "content":"Centimeters Grid"
+         },
+         {
+            "type":"textarea",
+            "id":"cm1",
+            "label":"Row 1 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"cm2",
+            "label":"Row 2 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"cm3",
+            "label":"Row 3 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"cm4",
+            "label":"Row 4 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"cm5",
+            "label":"Row 5 values (CSV)"
+         },
+         {
+            "type":"textarea",
+            "id":"cm6",
+            "label":"Row 6 values (CSV)"
+         },
+         {
+            "type": "url",
+            "id": "moreinfo",
+            "label": "More Info Page"
+         },
+         {
+            "type": "text",
+            "id": "buttontext",
+            "label": "Button Text"
+         }
+      ]
+    }
+    ]
+  }
+{% endschema %}

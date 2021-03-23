@@ -1,0 +1,20 @@
+{% if currtitle == blank %}
+  {%- assign currtitle = true -%}
+{% endif %}
+<span class="titletag">{% if currtitle %}{{ product.title }}{% endif %}<br /><small>{{ variant.option1 }}</small></span>
+<form data-prodid="{{ product.id }}">
+  <fieldset class="swatch clearfix col-60" data-option-index="1" data-option-id="4285598498850">
+    {%- assign size_variants = '' -%}
+    {% for var in product.variants %}
+      {% if variant.option1 == var.option1 %}      
+        <div class="swatch-element {% unless var.available %}available{% endunless %}">
+          <input id="swatch-{{ var.id }}" class="" type="radio" name="option-{{ var.id }}" value="{{ var.id }}" data-option="{{ var.option2 }}">
+          <label for="swatch-{{ var.id }}">
+            {{ var.option2 }}
+            <img class="crossed-out" src="//cdn.shopify.com/s/files/1/0032/4642/t/92/assets/soldout.png?1994" alt="//cdn.shopify.com/s/files/1/0032/4642/t/92/assets/soldout">
+          </label>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </fieldset>
+</form>

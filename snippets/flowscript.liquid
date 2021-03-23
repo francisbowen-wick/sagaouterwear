@@ -1,0 +1,135 @@
+
+{% comment %}
+FUNNEL -> Add to Cart
+{% endcomment %}
+
+<script>
+{% if template contains "product" %}
+    // Set variable to add to cart button
+    const addToCartButton = document.querySelector('.product-form__cart-submit');
+
+    function userAddsToCartFromPDP() {
+
+      // Set variables for product id, quantity, and product price
+      const productSelect = document.querySelector('.product-form__variants');
+      const quantitySelect = document.querySelector('.item-quantity');
+      const productJson = document.querySelector('#ProductJson-{{product.id}}');
+      const productPrice = JSON.parse(productJson.innerText).price;
+
+      // Set variable for params object with required fields to be passed as an argument to processEvent method
+      // Note: the currency property of the price object should be the base currency of the store (without Flow)
+      const params = {
+        item_number: productSelect.value,
+        price: {
+          amount: productPrice,
+          currency: 'USD'
+        },
+        quantity: 1
+      };
+
+      // Send cart_add event to Beacon
+      Flow.beacon.processEvent('cart_add', params, { xhr: true });
+
+    };
+
+    // Ensure FlowJS is loaded and then add event listener to add to cart button to track add to cart
+    Flow.set('on', 'ready', function () {
+      if (addToCartButton) {
+        addToCartButton.addEventListener('click', userAddsToCartFromPDP);
+      }
+    });
+  {% endif %}
+  
+{% comment %}
+  // Cart button example add
+  onclick="window.Flow.beacon.processEvent('cart_add', params, { xhr: true })"
+{% endcomment %}
+  
+  
+  
+  {% comment %}
+FUNNEL -> Remove from cart
+{% endcomment %}
+  
+{% if template contains "cart" %}  
+  //Build param object and sent cart_remove event to Beacon
+function userRemovesFromCart(link) {
+  const params = {
+    item_number: link.getAttribute('cart-item-number'),
+  };
+  //Send cart_remove to Beacon
+  Flow.beacon.processEvent('cart_remove', params, { xhr: true });       
+};
+
+//Finds each Remove from Cart link on Cart Page and adds an event listener to each one.
+removeFromCartLinks = document.querySelectorAll('.btn--secondary cart__remove');
+
+Flow.set('on', 'ready', function () {
+  if (removeFromCartLinks) {
+    removeFromCartLinks.forEach(function (link) {
+      link.addEventListener('click', userRemovesFromCart);
+    })
+  };
+});
+  
+  {% endif %} 
+{% comment %}
+  // Cart removal  example add  
+  onclick="Flow.beacon.processEvent('cart_remove', params, { xhr: true })"
+{% endcomment %}  
+  
+
+{% comment %}  
+Country picker
+{% endcomment %}   
+
+
+  
+  Flow.set('on', 'ready', function () {
+    	console.log('tried');
+      window.flow.countryPicker.createCountryPicker({
+      type: 'modal',
+      containerId: 'country-picker',
+      modalTitle: 'Select an Experience'
+    });
+  });
+ 
+  
+  
+  Flow.set('on', 'ready', function () {
+    var cttxt = $(".flow-country-picker-modal-trigger-text").text();
+    if(cttxt =="United States of America (USD)"){
+      $(".flow-country-picker-modal-trigger-text").text("USA (USD)");
+    }
+  });
+  
+  
+  
+    
+  Flow.set('on', 'ready', function () {
+    	console.log('tried');
+      window.flow.countryPicker.createCountryPicker({
+      type: 'modal',
+      containerId: 'country-picker2',
+      modalTitle: 'Select an Experience'
+    });
+  });
+ 
+  
+  
+  Flow.set('on', 'ready', function () {
+    var cttxt = $("#country-picker2 .flow-country-picker-modal-trigger-text").text();
+    if(cttxt =="United States of America (USD)"){
+      $("#country-picker2 .flow-country-picker-modal-trigger-text").text("USA (USD)");
+    }
+  });
+  
+  
+  
+  
+  </script>
+
+
+<style>
+  .flow-country-picker-modal-trigger .flow-country-picker-modal-trigger-text {display:none;}
+</style>

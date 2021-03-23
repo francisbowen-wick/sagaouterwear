@@ -1,0 +1,10 @@
+<!-- Import the component -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+<!-- Use it like any other HTML element -->
+<model-viewer camera-controls autoplay id="orbit-demo" background-image="//cdn.shopify.com/s/files/1/0032/4642/t/89/assets/snow5.hdr" alt="jacket test"  src="{{'scene.glb' | asset_url }}"></model-viewer>
+<style>
+  model-viewer {height:700px;width:100%;}
+  
+/*  background-image="{{ 'snow.hdr' | asset_url }}" */
+</style>

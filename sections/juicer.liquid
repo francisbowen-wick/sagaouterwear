@@ -1,0 +1,46 @@
+<script src="https://assets.juicer.io/embed-no-jquery.js" type="text/javascript"></script>
+<link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css">
+<ul class="juicer-feed" data-feed-id="{{ section.settings.feed_id }}"></ul>
+<style>
+  /* width */
+.juicer-feed::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.juicer-feed::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.juicer-feed::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+.juicer-feed::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+  .instafeed {
+  	margin:20px auto;
+  }
+</style>
+{% schema %}
+   {
+      "name": "Instagram Feeds",
+      "class": "instafeed",
+      "settings": [
+         {
+            "type":"text",
+            "id":"feed_id",
+            "label":"Feed ID"
+         }
+      ],
+      "presets":[
+         {
+            "name":"Instagram Feeds",
+            "category":"Social Media"
+         }
+      ]
+   }
+{% endschema %}

@@ -1,0 +1,15 @@
+{%assign ispants = false %}
+{% if product.title contains "pant" or product.title contains "Pant" %}
+	{% unless product.title contains "bib" or product.title contains "Bib" %}
+		{%assign ispants = true %}
+	{%endunless%}
+{%endif%}
+<div class="{{product.handle}}{% if ispants %} pantadjust{%endif%}">
+  {% if type == 'jacket' %}
+  	{% include 'kitbuilder-slide_form' %}
+  {% endif %}
+  <img class="{{product.handle}}" src="{{ variant.image.src | img_url: 'x700'}}">
+  {% unless type == 'jacket' %}
+  	{% include 'kitbuilder-slide_form' %}
+  {% endunless %}
+</div>

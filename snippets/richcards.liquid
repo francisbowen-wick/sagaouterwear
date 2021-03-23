@@ -1,0 +1,31 @@
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "{{ product.title | replace: '"','&quot;' }}",
+  "image": [{%for image in product.images %}
+  "{{ image.src | img_url: 'grande' }}"{% unless forloop.last%},{%endunless%}
+  {%endfor%}],
+  "description": "{{ product.description | strip_html | truncatewords: '50' | escape }}",
+  "sku": "{{ product.selected_or_first_available_variant.sku }}",
+  "mpn": "{{ product.selected_or_first_available_variant.barcode }}",
+  "brand": {
+    "@type": "Product",
+    "name": "{{ product.vendor }}"
+  },
+  "offers": {
+    "@type": "Offer",
+      "url": "{{ shop.url }}{{ product.url }}",
+    "priceCurrency": "{{ shop.currency }}",
+    "price": "{{ product.selected_or_first_available_variant.price | money_without_currency | remove: "," }}",
+    "priceValidUntil": "{{ "now" | date: "%s" | plus: 864000 | date: "%b %d, %Y" }}",
+    "itemCondition": "http://schema.org/NewCondition",
+    "availability": "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+    "seller": {
+      "@type": "Organization",
+      "name": "{{shop.name}}"
+    }
+  }
+}
+</script>
+

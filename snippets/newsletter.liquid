@@ -1,0 +1,113 @@
+{% capture newsletter_title %}
+  {% if section.settings.subhead %}<h5>{{ section.settings.subhead }}</h5>{% endif %}
+  <label for="Email" class="h4">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+{% endcapture %}
+
+{% if settings.newsletter_action_url != blank %}
+  <form class="mailing-list-signup-form row align-items-center" action="{{ settings.newsletter_action_url }}" method="post" name="mc-embedded-subscribe-form" target="_blank">
+
+    {% if newsletter_alone %}
+      <div class="col-md-30">
+    {% endif %}
+
+    {{ newsletter_title }}
+
+    {% if newsletter_alone %}
+      </div>
+      <div class="col-md-30">
+    {% endif %}
+
+    <div class="input-group">
+      <input class="mailing-list-signup-form-email"
+        name="EMAIL"
+        id="Email"
+        type="email"
+        placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+        value="{% if customer %}{{ customer.email }}{% endif %}"
+        aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}" />
+      <span class="input-group__btn">
+        <button type="submit" class="btn btn--secondary newsletter__submit" name="commit" id="Subscribe">
+          <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+          <!-- JavaScript based. Auto SSL. Auto fallback to image -->
+          <!-- Start FastG8 Pixel Tag -->
+            <script type="text/javascript">
+              (function() {
+                var elem = document.createElement('script');
+                elem.src = (document.location.protocol == "https:" ? "https://" : "http://") + "u.fg8dgt.com/pixel?type=js&id=650&cust=[MD5 Hash Email]&cb=" + Math.floor(Math.random() * 100000000);
+                elem.async = true;
+                elem.type = "text/javascript";
+                var scpt = document.getElementsByTagName('script')[0];
+                scpt.parentNode.insertBefore(elem, scpt);
+              })();
+            </script>
+            <noscript>
+              <img src="//u.fg8dgt.com/pixel?type=img&id=650&cust={{ order.customer.email | md5 }}&cb={{ 'now' | date: '%s' }}" style="display: none;" border="0" height="1" width="1"/>
+            </noscript>
+          <!-- End FastG8 Pixel Tag -->
+        </button>
+      </span>
+    </div>
+
+    {% if newsletter_alone %}
+      </div>
+    {% endif %}
+
+  </form>
+{% else %}
+  {% form 'customer', class:'contact-form row align-items-center' %}
+    {{ form.errors | default_errors }}
+    {% if form.posted_successfully? %}
+      <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+    {% else %}
+
+      {% if newsletter_alone %}
+        <div class="col-md-30">
+      {% endif %}
+
+      {{ newsletter_title }}
+
+      {% if newsletter_alone %}
+        </div>
+        <div class="col-md-30">
+      {% endif %}
+
+        <div class="input-group">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email"
+            name="contact[email]"
+            id="Email"
+            class="input-group__field newsletter__input"
+            value="{% if customer %}{{ customer.email }}{% endif %}"
+            placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+            autocorrect="off"
+            autocapitalize="off">
+          <span class="input-group__btn">
+            <button type="submit" class="btn btn--secondary newsletter__submit" name="commit" id="Subscribe">
+              <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+              <!-- JavaScript based. Auto SSL. Auto fallback to image -->
+              <!-- Start FastG8 Pixel Tag -->
+                <script type="text/javascript">
+                  (function() {
+                    var elem = document.createElement('script');
+                    elem.src = (document.location.protocol == "https:" ? "https://" : "http://") + "u.fg8dgt.com/pixel?type=js&id=650&cust=[MD5 Hash Email]&cb=" + Math.floor(Math.random() * 100000000);
+                    elem.async = true;
+                    elem.type = "text/javascript";
+                    var scpt = document.getElementsByTagName('script')[0];
+                    scpt.parentNode.insertBefore(elem, scpt);
+                  })();
+                </script>
+                <noscript>
+                  <img src="//u.fg8dgt.com/pixel?type=img&id=650&cust={{ order.customer.email | md5 }}&cb={{ 'now' | date: '%s' }}" style="display: none;" border="0" height="1" width="1"/>
+                </noscript>
+              <!-- End FastG8 Pixel Tag -->
+            </button>
+          </span>
+        </div>
+
+      {% if newsletter_alone %}
+        </div>
+      {% endif %}
+
+    {% endif %}
+  {% endform %}
+{% endif %}

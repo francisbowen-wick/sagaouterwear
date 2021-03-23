@@ -1,0 +1,1740 @@
+{
+  "current": {
+    "popnote": false,
+    "poptitle": "Saga Shipping Delays",
+    "poptext": "We apologize in advance for any delays in shipping.  We have discovered that a UPS trailer with orders has been severely delayed at a hub for processing.  We are chasing UPS for updates.",
+    "cookiepolicy": true,
+    "cookiepolicytext": "We use cookies and similar technologies to provide the best consumer experience.  Continuing to use our site means you agree to our use of cookies.",
+    "cookiepolicybutton": "Accept & Close",
+    "cookiepolicytl": "See our cookie policy for more information",
+    "cookiepolicylink": "shopify:\/\/pages\/privacy-policy",
+    "dbat": "",
+    "appkey": "",
+    "aprovecodes": "",
+    "color_body_bg": "#fff",
+    "color_modal_bg": "#000000",
+    "opacity_modal_bg": 60,
+    "header_bg_color": "rgba(0,0,0,0)",
+    "header_link_color": "#3d4246",
+    "header_link_color_hover": "#3d4246",
+    "footer_bg_color": "#3d4246",
+    "footer_text_color": "#788188",
+    "footer_link_color": "#788188",
+    "footer_link_color_hover": "#ffffff",
+    "color_text": "#000000",
+    "color_body_text": "#788188",
+    "color_link": "#3d4246",
+    "color_link_hover": "#3d4246",
+    "color_sale_text": "#7796a8",
+    "color_button": "#f7ff00",
+    "color_button_text": "#000000",
+    "color_button_hover": "#537182",
+    "color_button_text_hover": "#fff",
+    "color_small_button": "#fff",
+    "color_small_button_text": "#3d4246",
+    "color_small_button_hover": "#fff",
+    "color_small_button_text_hover": "#223646",
+    "color_addtocart": "#7796a8",
+    "color_addtocart_text": "#fff",
+    "color_addtocart_hover": "#537182",
+    "color_addtocart_text_hover": "#fff",
+    "button_radius": 0,
+    "color_borders": "rgba(0,0,0,0)",
+    "color_image_overlay_text": "rgba(0,0,0,0)",
+    "color_image_overlay": "#ffffff",
+    "image_overlay_opacity": 30,
+    "type_header_family": "Google_Work+Sans_600_sans",
+    "type_header_base_size": "26px",
+    "type_header_upcase": false,
+    "type_base_family": "Google_Work+Sans_400_sans",
+    "type_base_size": "16px",
+    "type_bold_product_titles": false,
+    "header_sticky": true,
+    "header_overlay": false,
+    "align_logo": "left",
+    "align_menu": "inline",
+    "align_menu_text": "center",
+    "logo": "shopify:\/\/shop_images\/OG-Logo_x50_2x_9deb23e1-2652-4bde-8eb0-f1bd9da09329.png",
+    "logo_scrolled": "",
+    "logo_max_width": "100",
+    "cartdropdown": false,
+    "enablesearch": true,
+    "searchwhat": "product",
+    "main_linklist": "shop",
+    "megamenu1": "",
+    "megamenu2": "",
+    "megamenu3": "",
+    "megamenu4": "",
+    "megamenu5": "",
+    "megamenu6": "",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "https:\/\/twitter.com\/sagaouterwear?lang=en",
+    "social_facebook_link": "https:\/\/www.facebook.com\/sagaouterwear\/",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/sagaouterwear\/",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCYPkHjl1M5GPQzOkFpuT4Rg",
+    "social_vimeo_link": "https:\/\/vimeo.com\/sagaouterwear",
+    "newsletter_action_url": "",
+    "newsletter_poup": false,
+    "newsletter_bg": "",
+    "newsletter_color": "#222222",
+    "newsletter_popup_length": "0",
+    "newsletter_popup_title": "",
+    "newsletter_popup_content": "",
+    "enable_crossclick": false,
+    "enable_colorswatch": true,
+    "color_swatchimage": false,
+    "cartajax": false,
+    "favicon": "shopify:\/\/shop_images\/favicon_9e0a265f-c705-4604-b33e-a3d3c62fe25e.png",
+    "checkout_header_image": "shopify:\/\/shop_images\/FW1819-Mens-Life-Action-2.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/OG-Logo_x50_2x_9deb23e1-2652-4bde-8eb0-f1bd9da09329.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#000000",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#e32c2b",
+    "color_text_field": "#fff",
+    "color_text_field_text": "#000",
+    "sections": {
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1567723805276": {
+            "type": "menu",
+            "settings": {
+              "title": "Support",
+              "linklist": "customer-service"
+            }
+          }
+        },
+        "block_order": [
+          "1567723805276"
+        ],
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/SagaOuterwear_OGLOGO-WebsiteGray.png",
+          "footer_socials_enable": true,
+          "socials_title": "Connect",
+          "footer_newsletter_enable": true,
+          "footer_newsletter_alone": true,
+          "newsletter_background": "#788188",
+          "newsletter_color": "#ffffff"
+        }
+      },
+      "WAMheader": {
+        "type": "WAMheader",
+        "settings": {}
+      },
+      "notification": {
+        "type": "notification",
+        "settings": {
+          "message": true,
+          "message_text": "Free US Shipping over $99  ﻿*ALL DISCOUNT SALES ARE FINAL - NO RETURNS*",
+          "message_icon": "",
+          "align_message_icon": "left",
+          "color_bg": "#3d4246",
+          "color_text": "#ffffff"
+        }
+      },
+      "mobile-nav": {
+        "type": "mobile-nav",
+        "blocks": {
+          "1571343986717": {
+            "type": "row",
+            "settings": {
+              "main_title": "Mens",
+              "main_linklist": "mens",
+              "main_icon": "",
+              "enable_icon": false
+            }
+          },
+          "1571344007001": {
+            "type": "row",
+            "settings": {
+              "main_title": "Womens",
+              "main_linklist": "womens",
+              "main_icon": "",
+              "enable_icon": false
+            }
+          },
+          "1575499279528": {
+            "type": "simplerow",
+            "settings": {
+              "main_title": "Accessories",
+              "main_icon": "",
+              "main_link": "shopify:\/\/collections\/accessories"
+            }
+          },
+          "e8a2787c-f914-4034-aa7d-70418f8ca889": {
+            "type": "simplerow",
+            "settings": {
+              "main_title": "SALES",
+              "main_icon": "",
+              "main_link": "shopify:\/\/collections\/sales"
+            }
+          },
+          "1571344029602": {
+            "type": "row",
+            "settings": {
+              "main_title": "Customer Service",
+              "main_linklist": "customer-service",
+              "main_icon": "",
+              "enable_icon": false
+            }
+          }
+        },
+        "block_order": [
+          "1571343986717",
+          "1571344007001",
+          "1575499279528",
+          "e8a2787c-f914-4034-aa7d-70418f8ca889",
+          "1571344029602"
+        ],
+        "settings": {}
+      },
+      "header-bg": {
+        "type": "header-bg",
+        "blocks": {
+          "1572832157967": {
+            "type": "page_header",
+            "settings": {
+              "title": "Pro Program",
+              "page": "",
+              "image": "shopify:\/\/shop_images\/Cover-1b.png"
+            }
+          }
+        },
+        "block_order": [
+          "1572832157967"
+        ],
+        "settings": {}
+      },
+      "filters": {
+        "type": "filters",
+        "settings": {}
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": "3",
+          "rows": "8",
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": false,
+          "tags_enable": false
+        }
+      },
+      "swatch-colors": {
+        "type": "swatch-colors",
+        "blocks": {
+          "1574716426156": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Adobe",
+              "color1": "#edd1d6",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568311283617": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Birch Batik",
+              "color1": "",
+              "color2": "",
+              "color3": "",
+              "image": "shopify:\/\/shop_images\/Birch_Batik.png"
+            }
+          },
+          "1568310425125": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Black Camo",
+              "color1": "#353036",
+              "color2": "#70666e",
+              "color3": "#574b4f"
+            }
+          },
+          "1574716630224": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Black Camp",
+              "color1": "#383b3e",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568311336483": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Blue Batik",
+              "color1": "#8ba7b2",
+              "color2": "#292f2e",
+              "color3": ""
+            }
+          },
+          "1568252737870": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Black",
+              "color1": "#383b3e",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568310797801": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Black Comp",
+              "color1": "#2d2b2b",
+              "color2": "#d1cec6",
+              "color3": ""
+            }
+          },
+          "1574444113573": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Blanc Gingham",
+              "color1": "#242323",
+              "color2": "#ffffff",
+              "color3": ""
+            }
+          },
+          "1574716047806": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Blanc Marble",
+              "color1": "#1a1a1a",
+              "color2": "#f8f8f8",
+              "color3": ""
+            }
+          },
+          "1568311541689": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Black Gingham",
+              "color1": "#242323",
+              "color2": "#7e7c7c",
+              "color3": ""
+            }
+          },
+          "1568311054694": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Bright Violet",
+              "color1": "#774684",
+              "color2": "#2d2d2f",
+              "color3": ""
+            }
+          },
+          "1568311398757": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Cactus",
+              "color1": "",
+              "color2": "",
+              "color3": "",
+              "image": "shopify:\/\/shop_images\/Faded_Cactus.png"
+            }
+          },
+          "1574716876851": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Chile",
+              "color1": "#bf634d",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1574716112688": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Clay",
+              "color1": "#aa3414",
+              "color2": "#c9c1b8",
+              "color3": ""
+            }
+          },
+          "1568252768763": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Curry",
+              "color1": "#e3c355",
+              "color2": "#cbc4ae",
+              "color3": ""
+            }
+          },
+          "1568310623219": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Denim",
+              "color1": "#2b3848",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568310095039": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Desert",
+              "color1": "#e7e9da",
+              "color2": "#7c7667",
+              "color3": "#c9c0a1"
+            }
+          },
+          "1574716705081": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Desert Camo",
+              "color1": "#8c7874",
+              "color2": "#f2ecda",
+              "color3": "#cabbb1"
+            }
+          },
+          "1568311244689": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Eclipse",
+              "color1": "#2a3e51",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568252839404": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Flamingo",
+              "color1": "",
+              "color2": "",
+              "color3": "",
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2019-09-11_at_8.20.49_PM.png"
+            }
+          },
+          "1574444589330": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Flux Yellow",
+              "color1": "#dcf72b",
+              "color2": "#1e1b1b",
+              "color3": ""
+            }
+          },
+          "1574444556266": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Forest",
+              "color1": "#536a5a",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568310498370": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Forest Fern",
+              "color1": "",
+              "color2": "",
+              "color3": "",
+              "image": "shopify:\/\/shop_images\/Forest_Fern.png"
+            }
+          },
+          "1568309495805": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Grenadine",
+              "color1": "#d0543e",
+              "color2": "#d6d9c8",
+              "color3": "#2d3032"
+            }
+          },
+          "1568309614207": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Khaki",
+              "color1": "#bcb396",
+              "color2": "#ced1be",
+              "color3": "#2d3032"
+            }
+          },
+          "1574715901999": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Khaki Camo",
+              "color1": "#2b2a2d",
+              "color2": "#645549",
+              "color3": "#413a34"
+            }
+          },
+          "1568252851937": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Lavender",
+              "color1": "#b49db0",
+              "color2": "#414447",
+              "color3": ""
+            }
+          },
+          "1574717004789": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Lichen Flamingo",
+              "color1": "",
+              "color2": "",
+              "color3": "",
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2019-09-11_at_8.20.49_PM_1.png"
+            }
+          },
+          "1574716532360": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Lichen",
+              "color1": "#91a497",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568310000328": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Military Olive",
+              "color1": "#565233",
+              "color2": "#181a1d",
+              "color3": "#df745c"
+            }
+          },
+          "1568310720459": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Monument",
+              "color1": "#a3a79e",
+              "color2": "#a3a79e",
+              "color3": ""
+            }
+          },
+          "1574717088968": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Natural",
+              "color1": "#dbb477",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568310853885": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Night Camo",
+              "color1": "#333335",
+              "color2": "#0d0d0d",
+              "color3": "#2d2d2f"
+            }
+          },
+          "1574716822116": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Olive",
+              "color1": "#565233",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568310939002": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Olive Camo",
+              "color1": "#585141",
+              "color2": "#de3e32",
+              "color3": "#2f2c2f"
+            }
+          },
+          "1568309756380": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Poseidon",
+              "color1": "#76a0a6",
+              "color2": "#ba925b",
+              "color3": "#263849"
+            }
+          },
+          "1574716764845": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Quilted Black",
+              "color1": "#383b3e",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1574716785526": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Quilted Olive",
+              "color1": "#565233",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1574716264280": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Salmon",
+              "color1": "#cbad9e",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1574723325796": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Red Plaid",
+              "color1": "#cf3636",
+              "color2": "#2e2c2c",
+              "color3": ""
+            }
+          },
+          "1574716342621": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Shadow",
+              "color1": "#080a0b",
+              "color2": "#9e9a96",
+              "color3": "#4a3f49"
+            }
+          },
+          "1568311159849": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Silver Birch",
+              "color1": "#c7c4bd",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1568310993946": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Sky Blue",
+              "color1": "#7a959f",
+              "color2": "#2e2b2e",
+              "color3": ""
+            }
+          },
+          "1568311462800": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Sunflower",
+              "color1": "",
+              "color2": "",
+              "color3": "",
+              "image": "shopify:\/\/shop_images\/Sunflower_Cactus.png"
+            }
+          },
+          "1568311109971": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Tobacco",
+              "color1": "#95754c",
+              "color2": "",
+              "color3": ""
+            }
+          },
+          "1574716572903": {
+            "type": "color_swatches",
+            "settings": {
+              "title": "Zebra",
+              "color1": "#faf9f9",
+              "color2": "#121212",
+              "color3": "#faf9f9"
+            }
+          }
+        },
+        "block_order": [
+          "1574716426156",
+          "1568311283617",
+          "1568310425125",
+          "1574716630224",
+          "1568311336483",
+          "1568252737870",
+          "1568310797801",
+          "1574444113573",
+          "1574716047806",
+          "1568311541689",
+          "1568311054694",
+          "1568311398757",
+          "1574716876851",
+          "1574716112688",
+          "1568252768763",
+          "1568310623219",
+          "1568310095039",
+          "1574716705081",
+          "1568311244689",
+          "1568252839404",
+          "1574444589330",
+          "1574444556266",
+          "1568310498370",
+          "1568309495805",
+          "1568309614207",
+          "1574715901999",
+          "1568252851937",
+          "1574717004789",
+          "1574716532360",
+          "1568310000328",
+          "1568310720459",
+          "1574717088968",
+          "1568310853885",
+          "1574716822116",
+          "1568310939002",
+          "1568309756380",
+          "1574716764845",
+          "1574716785526",
+          "1574716264280",
+          "1574723325796",
+          "1574716342621",
+          "1568311159849",
+          "1568310993946",
+          "1568311462800",
+          "1568311109971",
+          "1574716572903"
+        ],
+        "settings": {}
+      },
+      "product-images": {
+        "type": "product-images",
+        "settings": {
+          "image_size": "full",
+          "vertical": false,
+          "enable_zoom": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "image_size": "large",
+          "vertical": false,
+          "show_quantity_selector": false,
+          "show_variant_labels": false,
+          "show_vendor": false,
+          "enable_zoom": false,
+          "show_share_buttons": false
+        }
+      },
+      "product-related": {
+        "type": "product-related",
+        "settings": {
+          "title": "CHECK THESE OUT TOO...",
+          "related_featured": false,
+          "related_collection": "mens-jackets",
+          "related_tag": true,
+          "related_recent": false
+        }
+      },
+      "product-sizing": {
+        "type": "product-sizing",
+        "settings": {}
+      },
+      "kitbuilder-anomie": {
+        "type": "kitbuilder-anomie",
+        "settings": {
+          "c1": "mens-jackets",
+          "c2": "mens-pants-kitbuilder",
+          "c3": "womens-jackets",
+          "c4": "womens-pants"
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/pdpdesc.jpg",
+          "mobile_image": "",
+          "contained": "container-fluid",
+          "overlay": true,
+          "parallax_me": false,
+          "parallax_sensitivity": "200",
+          "alignment": "center",
+          "title": "Image with text overlay",
+          "title_color": "",
+          "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
+          "text_color": "",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "button_label": "",
+          "button_link": "",
+          "text_layout": "center",
+          "text_align": "center"
+        }
+      },
+      "slideshow-prod": {
+        "type": "slideshow-prod",
+        "blocks": {
+          "1568264412343": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/functionmenu-white_be120fad-5963-4cca-8c70-f65e653ff9d1.jpg",
+              "secondimage": "",
+              "centerimage": "",
+              "overlay": false,
+              "textunderlay": false,
+              "alignment": "top",
+              "text_layout": "center",
+              "text_align": "center",
+              "title": "",
+              "heading_color": "",
+              "subheading": "",
+              "subheading_color": "",
+              "button": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1568264412343"
+        ],
+        "settings": {
+          "contained": "container-fluid",
+          "autoplay": true,
+          "autoplay_speed": "7000",
+          "dots": false,
+          "arrows": false,
+          "slideshow_height": "maintain_ratio",
+          "text_size": "medium"
+        }
+      },
+      "logo-bar": {
+        "type": "logo-bar",
+        "blocks": {
+          "1571769736462": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sagatek-3l.jpg",
+              "title": "tech-sagatek3l",
+              "link": ""
+            }
+          },
+          "1571767361742": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sagatek-2l.jpg",
+              "title": "tech-sagatek2l",
+              "link": ""
+            }
+          },
+          "1571796452305": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sagatek.jpg",
+              "title": "tech-sagatek",
+              "link": ""
+            }
+          },
+          "1571796396811": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sagatek-fleece.jpg",
+              "title": "tech-sagatekfleece",
+              "link": ""
+            }
+          },
+          "1571769694468": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3layer.jpg",
+              "title": "tech-3l",
+              "link": ""
+            }
+          },
+          "1571766239726": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2layer.jpg",
+              "title": "tech-2l",
+              "link": ""
+            }
+          },
+          "1568325223313": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insulated.jpg",
+              "title": "tech-insulated",
+              "link": ""
+            }
+          },
+          "1568325196932": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wp10k.jpg",
+              "title": "tech-wp10k",
+              "link": ""
+            }
+          },
+          "1571768568336": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/br10k.jpg",
+              "title": "tech-br10k",
+              "link": ""
+            }
+          },
+          "1571769449586": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wp15k.jpg",
+              "title": "techwp15k",
+              "link": ""
+            }
+          },
+          "1571769428814": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wp20k.jpg",
+              "title": "tech-wp20k",
+              "link": ""
+            }
+          },
+          "1571768651882": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/br15k.jpg",
+              "title": "tech-br15k",
+              "link": ""
+            }
+          },
+          "1571768690919": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/br20k.jpg",
+              "title": "tech-br20k",
+              "link": ""
+            }
+          },
+          "1568325245926": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/seamtaped.jpg",
+              "title": "tech-seamtaped",
+              "link": ""
+            }
+          },
+          "1571770274250": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/criticalseamtaped.jpg",
+              "title": "tech-criticalseamtaped",
+              "link": ""
+            }
+          },
+          "1568325212434": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dwr.jpg",
+              "title": "tech-dwr",
+              "link": ""
+            }
+          },
+          "1568325263993": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ykk.jpg",
+              "title": "tech-ykk",
+              "link": ""
+            }
+          },
+          "1571771643333": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/storm-skirt.jpg",
+              "title": "tech-stormskirt",
+              "link": ""
+            }
+          },
+          "1571767622318": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/audio.jpg",
+              "title": "tech-audio",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1571769736462",
+          "1571767361742",
+          "1571796452305",
+          "1571796396811",
+          "1571769694468",
+          "1571766239726",
+          "1568325223313",
+          "1568325196932",
+          "1571768568336",
+          "1571769449586",
+          "1571769428814",
+          "1571768651882",
+          "1571768690919",
+          "1568325245926",
+          "1571770274250",
+          "1568325212434",
+          "1568325263993",
+          "1571771643333",
+          "1571767622318"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "page-template": {
+        "type": "page-template",
+        "blocks": {
+          "1572303754483": {
+            "type": "menu_sidebar",
+            "settings": {
+              "title": "Customer Service",
+              "quick_links": "customer-service"
+            }
+          },
+          "1572304084715": {
+            "type": "menu_sidebar",
+            "settings": {
+              "title": "Legal",
+              "quick_links": "legal"
+            }
+          }
+        },
+        "block_order": [
+          "1572303754483",
+          "1572304084715"
+        ],
+        "settings": {
+          "enable_sidebar": true,
+          "sidebar_position": "sidebar-right"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "blocks": {
+          "1602257053490": {
+            "type": "blog_sidebar",
+            "settings": {
+              "title": "Recent Stories"
+            }
+          }
+        },
+        "block_order": [
+          "1602257053490"
+        ],
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "enable_sidebar": false
+        }
+      },
+      "product-size": {
+        "type": "product-size",
+        "blocks": {
+          "1571948196191": {
+            "type": "grid",
+            "settings": {
+              "title": "size-mens-tops",
+              "copytitle": "",
+              "copytext": "",
+              "in1": "Size, Chest, Waist, Sleeve",
+              "in2": "S, 36-38\", 30-32\", 33-34\"",
+              "in3": "M, 38-40\", 32-34\", 34-35\"",
+              "in4": "L, 40-42\", 34-36\", 35-36\"",
+              "in5": "XL, 42-44\", 36-38\", 36-37\"",
+              "in6": "XXL, 44-46\", 38-40\", 36-37\"",
+              "cm1": "Size, Chest, Waist, Sleeve",
+              "cm2": "S, 91-96 cm, 76-81 cm, 84-86 cm",
+              "cm3": "M, 96-101 cm, 81-86 cm, 86-89 cm",
+              "cm4": "L, 101-106 cm, 86-91 cm, 89-91 cm",
+              "cm5": "XL, 106-112 cm, 91-96.5 cm, 91-94 cm",
+              "cm6": "XXL, 112-117 cm, 96-101 cm, 91-94 cm",
+              "moreinfo": "shopify:\/\/pages\/sizing-fit-guide",
+              "buttontext": "View Size Guide"
+            }
+          },
+          "1571949842872": {
+            "type": "grid",
+            "settings": {
+              "title": "size-mens-pants",
+              "copytitle": "",
+              "copytext": "",
+              "in1": "Size, Waist, Hip, Inseam",
+              "in2": "S, 30-32\", 36-38\", 29 1\/2\"",
+              "in3": "M, 32-34\", 38-41\", 31 1\/2\"",
+              "in4": "L, 34-36\", 42-44\", 33 1\/2\"",
+              "in5": "XL, 36-38\", 44-46\", 35 1\/2\"",
+              "in6": "XXL, 38-40\", 46-48\", 37 1\/2\"",
+              "cm1": "Size, Waist, Hip, Inseam",
+              "cm2": "S, 76-81 cm, 91-96 cm, 75 cm",
+              "cm3": "M, 81-86 cm, 96-104 cm, 80 cm",
+              "cm4": "L,  86-91 cm, 106-112 cm, 85 cm",
+              "cm5": "XL, 91-96 cm, 112-117 cm, 90 cm",
+              "cm6": "XXL, 96-101 cm, 117-123 cm, 95 cm",
+              "moreinfo": "shopify:\/\/pages\/sizing-fit-guide",
+              "buttontext": "View Size Guide"
+            }
+          },
+          "1571950367030": {
+            "type": "grid",
+            "settings": {
+              "title": "sizing-mens-joggers",
+              "copytitle": "",
+              "copytext": "",
+              "in1": "Size, Waist, Hip, Inseam",
+              "in2": "S, 30-32\", 36-38\", 25 1\/2\"",
+              "in3": "M, 32-34\", 38-41\", 27 1\/2\"",
+              "in4": "L, 34-36\", 42-44\", 29 1\/2\"",
+              "in5": "XL, 36-38\",44-46\",31 1\/2\"",
+              "in6": "",
+              "cm1": "Size, Waist, Hip, Inseam",
+              "cm2": "S, 76-81 cm, 91-96 cm, 65 cm",
+              "cm3": "M, 81-86 cm, 96-104 cm, 70 cm",
+              "cm4": "L, 86-91 cm, 106-112 cm, 75 cm",
+              "cm5": "XL, 91-96 cm, 112-117 cm, 80 cm",
+              "cm6": "",
+              "moreinfo": "shopify:\/\/pages\/sizing-fit-guide",
+              "buttontext": "View Size Guide"
+            }
+          },
+          "1571952007824": {
+            "type": "grid",
+            "settings": {
+              "title": "size-womens-tops",
+              "copytitle": "",
+              "copytext": "",
+              "in1": "Size, Chest, Waist, Sleeve",
+              "in2": "S, 33-35\", 26-28\", 28-30\"",
+              "in3": "M, 36-38\", 28-30\", 30-32\"",
+              "in4": "L, 39-40\", 30-32\", 32-34\"",
+              "in5": "XL, 40-42\", 32-34\", 32-34\"",
+              "in6": "",
+              "cm1": "Size, Chest, Waist, Sleeve",
+              "cm2": "S, 83-89 cm, 66-71 cm, 71-76 cm",
+              "cm3": "M, 91-96 cm, 71-76 cm, 76-81 cm",
+              "cm4": "L, 99-101 cm, 76-81 cm, 81-86 cm",
+              "cm5": "XL, 101-106 cm, 81-86 cm,  81-86 cm",
+              "cm6": "",
+              "moreinfo": "shopify:\/\/pages\/sizing-fit-guide",
+              "buttontext": "View Size Guide"
+            }
+          },
+          "1571951743868": {
+            "type": "grid",
+            "settings": {
+              "title": "size-womens-pants",
+              "copytitle": "",
+              "copytext": "",
+              "in1": "Size, Waist, Hip, Inseam",
+              "in2": "S, 26-28\", 36-38\", 32\"",
+              "in3": "M, 28-30\", 38-40\" ,33\"",
+              "in4": "L, 30-32\", 40-42\", 34\"",
+              "in5": "XL, 32-34\", 42-44\", 34\"",
+              "in6": "",
+              "cm1": "Size, Waist, Hip, Inseam",
+              "cm2": "S, 66-71 cm, 91-96 cm, 81 cm",
+              "cm3": "M, 71-76 cm, 96-101 cm, 83 cm",
+              "cm4": "L, 76-81 cm, 101-106 cm,  86 cm",
+              "cm5": "XL, 81-86 cm, 101-111 cm, 86 cm",
+              "cm6": "",
+              "moreinfo": "shopify:\/\/pages\/sizing-fit-guide",
+              "buttontext": "View Size Guide"
+            }
+          },
+          "1572360256208": {
+            "type": "grid",
+            "settings": {
+              "title": "size-womens-leggings",
+              "copytitle": "",
+              "copytext": "",
+              "in1": "Size, Waist, Hip, Inseam",
+              "in2": "S, 26-28\",36-38\",25\"",
+              "in3": "M, 28-30\",38-40\",26\"",
+              "in4": "L,30-32\",40-42\",26\"",
+              "in5": "XL,32-34\",42-44\",27\"",
+              "in6": "",
+              "cm1": "Size, Waist, Hip, Inseam",
+              "cm2": "S,66-71 cm,91-96 cm,64 cm",
+              "cm3": "M, 71-76 cm,96-101 cm,66 cm",
+              "cm4": "L,76-81 cm,101-106 cm,66 cm",
+              "cm5": "XL,81-86 cm,101-111 cm,68 cm",
+              "cm6": "",
+              "moreinfo": "shopify:\/\/pages\/sizing-fit-guide",
+              "buttontext": "View Size Guide"
+            }
+          },
+          "1572360496404": {
+            "type": "grid",
+            "settings": {
+              "title": "size-mens-skate-pant",
+              "copytitle": "",
+              "copytext": "",
+              "in1": "Size, Waist, Hip, Inseam",
+              "in2": "S, 30-32\",36-38\",31\"",
+              "in3": "M,32-34\",38-41\",32\"",
+              "in4": "L,34-36\", 42-44\",33\"",
+              "in5": "XL,36-38\",44-46\",34\"",
+              "in6": "",
+              "cm1": "Size, Waist, Hip, Inseam",
+              "cm2": "S, 76-81 cm,91-96 cm,79 cm",
+              "cm3": "M, 81-86 cm,96-104 cm,81 cm",
+              "cm4": "L, 86-91 cm,106-112 cm,84 cm",
+              "cm5": "XL,91-96 cm,112-117 cm,86 cm",
+              "cm6": "",
+              "moreinfo": "shopify:\/\/pages\/sizing-fit-guide",
+              "buttontext": "View Size Guide"
+            }
+          }
+        },
+        "block_order": [
+          "1571948196191",
+          "1571949842872",
+          "1571950367030",
+          "1571952007824",
+          "1571951743868",
+          "1572360256208",
+          "1572360496404"
+        ],
+        "settings": {}
+      },
+      "product-care": {
+        "type": "product-care",
+        "blocks": {
+          "1571726874602": {
+            "type": "grid",
+            "settings": {
+              "title": "Pants",
+              "product_tag": "care-pants",
+              "care_blog": "care-instructions\/care-pants"
+            }
+          }
+        },
+        "block_order": [
+          "1571726874602"
+        ],
+        "settings": {}
+      },
+      "instagram": {
+        "type": "instagram",
+        "settings": {}
+      },
+      "password-header": {
+        "type": "password-header",
+        "settings": {
+          "logo": "",
+          "logo_max_width": "100",
+          "header": "Coming Soon"
+        }
+      },
+      "password-content": {
+        "type": "password-content",
+        "settings": {
+          "newsletter_enable": true,
+          "newsletter_form_heading": "Be the first to know when we launch.",
+          "newsletter_placeholder": "Email address",
+          "newsletter_button_text": "Notify me"
+        }
+      },
+      "password-footer": {
+        "type": "password-footer",
+        "settings": {
+          "show_share_buttons": true,
+          "social_message": "Spread the word"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_notes_enable": false
+        }
+      },
+      "page-template-about": {
+        "type": "page-template-about",
+        "blocks": {
+          "1572302090448": {
+            "type": "content_row",
+            "settings": {
+              "title": "",
+              "content": "<p>SAGA is a word of mouth brand. We built SAGA because we are passionate skiers and snowboarders who obsess over design, quality, and value. When we needed better fitting apparel and more rugged materials, we built it ourselves, by hand. When our small tribe of friends needed better gear, we ran exclusive manufacturing runs to sponsor them. When the public started demanding it, we sold limited edition quantities and built the first crowdsourced, direct-to-consumer model in our space. When our friends aspired to be the top professional athletes in our niche, we supported them, and built a brand around them. And they supported SAGA, trusting that together we were building a community, product and brand that was truly different and represented us. We built a cult of passionate people, from amateur thrill seekers, to pro athletes and everyday customers, just like we are. We pioneered what it meant to be a vertical brand in the digital realm.<\/p>\n<p>We blur the lines between skier vs snowboarder, park vs big mountain, guy vs girl, kid vs adult, and retail vs direct-to-consumer. Our North Star is simple, to be the most connected brand and stand for our athletes and customers alike - the same since day one.<\/p>\n<p><\/p>\n<p><\/p>\n<p><em><strong>Stay Hungry.<\/strong><\/em><\/p>",
+              "sidebar_url": "",
+              "sidebar_image": "shopify:\/\/shop_images\/COOKE-CITY-20-SMALLER.png",
+              "sidebar_text": "",
+              "sidebar_btn": ""
+            }
+          }
+        },
+        "block_order": [
+          "1572302090448"
+        ],
+        "settings": {}
+      },
+      "login-page": {
+        "type": "login-page",
+        "settings": {
+          "padding-top": 100,
+          "padding-bottom": 100,
+          "fluid": true,
+          "logncreate": true,
+          "bgimage": true,
+          "image": "shopify:\/\/shop_images\/COOKE-CITY-20-SMALLER.png"
+        }
+      },
+      "account-page": {
+        "type": "account-page",
+        "settings": {
+          "padding-top": 0,
+          "padding-bottom": 60,
+          "fluid": true,
+          "bgimage": true,
+          "image": "shopify:\/\/shop_images\/Cover-1.jpg",
+          "wbit": true,
+          "headpadding-top": 100,
+          "headpadding-bottom": 60,
+          "margin-bottom": 60,
+          "rowpadding-top": 50,
+          "reorder": false
+        }
+      },
+      "slideshow-account": {
+        "type": "slideshow-account",
+        "settings": {
+          "show": true,
+          "contained": "container",
+          "autoplay": true,
+          "autoplay_speed": "7000",
+          "dots": false,
+          "arrows": true,
+          "slideshow_height": "small",
+          "text_size": "medium"
+        }
+      },
+      "slideshow-procode": {
+        "type": "slideshow-procode",
+        "blocks": {
+          "1572646407541": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cover-1b.png",
+              "mobileimage": "shopify:\/\/shop_images\/Cover-1b.png",
+              "overlay": false,
+              "textunderlay": false,
+              "alignment": "center",
+              "text_layout": "center",
+              "text_align": "center",
+              "title": "",
+              "heading_color": "",
+              "subheading": "",
+              "subheading_color": "",
+              "button": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1572646407541"
+        ],
+        "settings": {
+          "contained": "container-fluid",
+          "autoplay": true,
+          "autoplay_speed": "7000",
+          "dots": false,
+          "arrows": true,
+          "slideshow_height": "small",
+          "text_size": "medium"
+        }
+      },
+      "page-template-procode": {
+        "type": "page-template-procode",
+        "settings": {}
+      },
+      "1578328454341": {
+        "type": "slideshow-imagetypes",
+        "blocks": {
+          "1578328454341-0": {
+            "type": "image_w_overlay",
+            "settings": {
+              "title": "KEEP YOUR HEAD AND HANDS WARM",
+              "subheading": "",
+              "line_position": "left",
+              "line_color": "rgba(0,0,0,0)",
+              "line_width": 0,
+              "line_height": 4,
+              "button_1_text": "Shop ACCESSORIES",
+              "button_1_link": "shopify:\/\/collections\/accessories",
+              "button_2_text": "",
+              "image": "shopify:\/\/shop_images\/Alegre_2020_1427787-Edit-Edit-Edit.jpg",
+              "alignment": "bottom",
+              "text_layout": "center",
+              "text_layout_vert": "center",
+              "text_align": "center",
+              "title-font": 60,
+              "heading_color": "#ffffff",
+              "subheading-font": 38,
+              "subheading_color": "#ffffff",
+              "mobileimage": "shopify:\/\/shop_images\/Alegre_2020_1427787-Edit-Edit-Edit.jpg",
+              "mobilealignment": "center",
+              "text_layout_vert_mobile": "center",
+              "text_align_mobile": "center",
+              "hide_title_mobile": false,
+              "title-font_mobile": 38,
+              "heading_color_mobile": "#ffffff",
+              "hide_subheading_mobile": false,
+              "subheading-font_mobile": 18,
+              "subheading_color_mobile": "#ffffff"
+            }
+          },
+          "1602168083935": {
+            "type": "image_w_overlay",
+            "settings": {
+              "title": "RIDING PULLOVERS",
+              "subheading": "get ready for spring riding",
+              "line_position": "left",
+              "line_color": "#ae3a36",
+              "line_width": 0,
+              "line_height": 0,
+              "button_1_text": "See more",
+              "button_1_link": "shopify:\/\/products\/fleece-riding-pullover-mens",
+              "button_2_text": "",
+              "image": "shopify:\/\/shop_images\/SagaOuterwear-HomePage-RidingPullovers-1-1920x1080.jpg",
+              "alignment": "center",
+              "text_layout": "center",
+              "text_layout_vert": "center",
+              "text_align": "center",
+              "title-font": 60,
+              "heading_color": "#ffffff",
+              "subheading-font": 28,
+              "subheading_color": "",
+              "mobileimage": "shopify:\/\/shop_images\/SagaOuterwear-HomePage-RidingPullovers-1-1920x1080.jpg",
+              "mobilealignment": "center",
+              "text_layout_vert_mobile": "center",
+              "text_align_mobile": "center",
+              "hide_title_mobile": false,
+              "title-font_mobile": 38,
+              "heading_color_mobile": "#ffffff",
+              "hide_subheading_mobile": false,
+              "subheading-font_mobile": 28,
+              "subheading_color_mobile": "#ffffff"
+            }
+          },
+          "1583172483144": {
+            "type": "image_w_overlay",
+            "settings": {
+              "title": "Saga women's",
+              "subheading": "Shop Your New Look",
+              "line_position": "left",
+              "line_color": "#ae3a36",
+              "line_width": 0,
+              "line_height": 0,
+              "button_1_text": "Shop Women's",
+              "button_1_link": "shopify:\/\/collections\/all-womens",
+              "button_2_text": "",
+              "image": "shopify:\/\/shop_images\/SagaOuterwear-HomePage-Empress3LJacket-1-1920x1080.png",
+              "alignment": "center",
+              "text_layout": "center",
+              "text_layout_vert": "center",
+              "text_align": "center",
+              "title-font": 60,
+              "heading_color": "#ffffff",
+              "subheading-font": 28,
+              "subheading_color": "#ffffff",
+              "mobileimage": "shopify:\/\/shop_images\/SagaOuterwear-HomePage-Empress3LJacket-1-1920x1080.png",
+              "mobilealignment": "bottom",
+              "text_layout_vert_mobile": "center",
+              "text_align_mobile": "center",
+              "hide_title_mobile": false,
+              "title-font_mobile": 33,
+              "heading_color_mobile": "#ffffff",
+              "hide_subheading_mobile": false,
+              "subheading-font_mobile": 22,
+              "subheading_color_mobile": "#ffffff"
+            }
+          },
+          "1601905716240": {
+            "type": "image_w_overlay",
+            "settings": {
+              "title": "TEK-LAYERS",
+              "subheading": "",
+              "line_position": "left",
+              "line_color": "#ae3a36",
+              "line_width": 0,
+              "line_height": 0,
+              "button_1_text": "SHOP NOW",
+              "button_1_link": "shopify:\/\/products\/tek-pullover-mens",
+              "button_2_text": "",
+              "image": "shopify:\/\/shop_images\/SagaOuterwear-HomePage-TekPullover-1920x1080.jpg",
+              "alignment": "center",
+              "text_layout": "center",
+              "text_layout_vert": "center",
+              "text_align": "center",
+              "title-font": 60,
+              "heading_color": "#ffffff",
+              "subheading-font": 28,
+              "subheading_color": "",
+              "mobileimage": "shopify:\/\/shop_images\/SagaOuterwear-HomePage-TekPullover-1920x1080.jpg",
+              "mobilealignment": "bottom",
+              "text_layout_vert_mobile": "center",
+              "text_align_mobile": "center",
+              "hide_title_mobile": false,
+              "title-font_mobile": 38,
+              "heading_color_mobile": "#ffffff",
+              "hide_subheading_mobile": false,
+              "subheading-font_mobile": 28,
+              "subheading_color_mobile": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "1578328454341-0",
+          "1602168083935",
+          "1583172483144",
+          "1601905716240"
+        ],
+        "settings": {
+          "contained": "container-fluid",
+          "autoplay": true,
+          "autoplay_speed": "5000",
+          "dots": true,
+          "arrows": false,
+          "slideshow_height": "maintain_ratio"
+        }
+      },
+      "1601425007163": {
+        "type": "image-bar",
+        "disabled": true,
+        "blocks": {
+          "1601425007163-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/SagaOuterwear-F20-Empress3LJacket_0000s_0003_SAGA_90.jpg",
+              "alignment": "center",
+              "link": "shopify:\/\/collections\/all-womens",
+              "cta_label": ""
+            }
+          },
+          "1601425007163-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/SagaOuterwear-F20-FleeceridingPullover_0000s_0004_Saga_-_FW20_Midlayers_Hoodies_drwclrk-1508.jpg",
+              "alignment": "center",
+              "link": "shopify:\/\/collections\/mens-apparel",
+              "cta_label": ""
+            }
+          },
+          "1601425007163-2": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/SagaOuterwear-F20-FleeceTekPullover-Mens_0000s_0001_Saga_-_FW20_Midlayers_Hoodies_drwclrk-0595.jpg",
+              "alignment": "center",
+              "link": "shopify:\/\/products\/fleece-tek-pullover-mens",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "1601425007163-0",
+          "1601425007163-1",
+          "1601425007163-2"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "megamenu1": {
+        "type": "megamenu1",
+        "settings": {}
+      },
+      "megamenu2": {
+        "type": "megamenu2",
+        "settings": {}
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_author": false,
+          "blog_show_date": false,
+          "show_share_buttons": true
+        }
+      },
+      "1603430897122": {
+        "type": "juicer",
+        "settings": {
+          "feed_id": "sagaouterwear"
+        }
+      },
+      "16068473025e076cbc": {
+        "type": "alternating-blocks",
+        "blocks": {
+          "16068473025e076cbc-0": {
+            "type": "row",
+            "settings": {
+              "benefit_color": "#ffffff",
+              "benefit_bg": "shopify:\/\/shop_images\/SagaOuterwear-Rosina-FIHPshoot-Multi-1-1920x1080.jpg",
+              "benefit_title": "SAGA BLOG",
+              "title_color": "#000000",
+              "benefit_copy": "Stay up to date with the Saga Team all year long as they take us to new places and share their adventures.",
+              "copy_color": "#6a6d71",
+              "link_text": "Read More",
+              "link_url": "https:\/\/www.sagaouterwear.com\/blogs\/news"
+            }
+          }
+        },
+        "block_order": [
+          "16068473025e076cbc-0"
+        ],
+        "settings": {
+          "title": "Brand Benefit Rows",
+          "full_width": true,
+          "row_size": "500px"
+        }
+      },
+      "160684789083d37b57": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/SagaOuterwear-TimMcChesney-TIOS-2.jpg",
+          "layout": "left",
+          "title": "By Definition, a Saga is:",
+          "text": "<p>* A dramatic history of a group, place, industry<\/p><p><\/p><p> * Any very long story with dramatic events<\/p><p><\/p><p>From the very beginning  Saga looked at the  outerwear industry hill to  climb as an exciting  challenge. We broke into the outerwear industry because no other brands were providing products that fit the bodies and needs of the athletes we surrounded ourselves with.<\/p><p><\/p><p>We stood up against every other brand, small and large, and watched over the years as they came and went. But we stayed. We stayed because we believe in what the brand stands for and what the brand provides to the community and to you. We stayed because the community continued to support us.<\/p><p><\/p><p>Even after a year when our warehouse was broken into and hundreds of thousands of dollars of unreleased product was stolen from us, the community stuck with us and we survived.<\/p><p><\/p><p>Even after we were forced to reduce our staff to bare bones and move from our home in Salt Lake City to Boulder, Co, the community stuck with us and we survived.<\/p><p><\/p><p>And most recently when our entire staff was furloughed because of the Covid-19 pandemic and the brand went into “sleep mode”, the community stuck with us.<\/p><p><\/p><p>This is our Saga, it’s truly never-ending.  Our passion for snow and creating products to support your love of the slopes. We aren’t going anywhere. Our passion for snow and your support for the brand continues to keep us going stronger than ever.<\/p>",
+          "button_label": ""
+        }
+      },
+      "16134869991821cf69": {
+        "type": "collection-list",
+        "blocks": {
+          "16134869991821cf69-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "all-mens",
+              "title": "MEN'S",
+              "collectionimage": "shopify:\/\/shop_images\/SagaOuterwear-HomePage-AnomieJacket-WebsiteHero.png",
+              "colwidth": "3",
+              "alignment": "top"
+            }
+          },
+          "16134869991821cf69-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "all-womens",
+              "title": "WOMEN'S",
+              "collectionimage": "shopify:\/\/shop_images\/F20-RosinaFriedel-Osttirol-8.jpg",
+              "colwidth": "3",
+              "alignment": "bottom"
+            }
+          },
+          "16134869991821cf69-2": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "tek-layers",
+              "title": "TEK LAYERS",
+              "collectionimage": "shopify:\/\/shop_images\/SagaOuterwear-F20-FleeceTekPullover-Mens_0000s_0001_Saga_-_FW20_Midlayers_Hoodies_drwclrk-0595.jpg",
+              "colwidth": "3",
+              "alignment": "top"
+            }
+          }
+        },
+        "block_order": [
+          "16134869991821cf69-0",
+          "16134869991821cf69-1",
+          "16134869991821cf69-2"
+        ],
+        "settings": {
+          "title": "SHOP FEATURED COLLECTIONS",
+          "full_width": true,
+          "no_gutters": false,
+          "remove_top_margin": false,
+          "move_text_below": true
+        }
+      }
+    },
+    "content_for_index": [
+      "1578328454341",
+      "16134869991821cf69",
+      "1601425007163",
+      "16068473025e076cbc",
+      "160684789083d37b57",
+      "1603430897122"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "color_text": "#3d4246",
+      "color_body_text": "#788188",
+      "color_sale_text": "#7796A8",
+      "color_borders": "#e8e9eb",
+      "color_button": "#7796A8",
+      "color_button_text": "#fff",
+      "color_small_button": "#fff",
+      "color_small_button_text": "#3d4246",
+      "color_text_field": "#fff",
+      "color_text_field_text": "#000",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "image_overlay_opacity": "0.25",
+      "color_body_bg": "#fff",
+      "type_header_family": "Google_Work+Sans_600_sans",
+      "type_header_base_size": "26px",
+      "type_base_family": "Google_Work+Sans_400_sans",
+      "type_base_size": "16px",
+      "type_bold_product_titles": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "sections": {
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "feature-row",
+        "slideshow"
+      ]
+    }
+  }
+}

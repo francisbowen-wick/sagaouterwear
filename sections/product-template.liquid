@@ -1,0 +1,461 @@
+		  {% include 'flow_metafields_prices' %}
+{% if cart.attributes.flow_metafield_key %}
+{% if product.handle == "gifting-card" or product.handle == "gift-card" %}
+<script>
+  window.location.href = "https://sagaouterwear.com";
+</script>
+{% endif %}
+{% endif %}
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{% include 'pro-code-deals' %}
+
+<div class="{{ product_description_width }}">
+  <div class="product-single__meta">
+
+    <h1 class="product-single__title hidden-mob">{{ product.title }}</h1>
+    <div class="hidden-mob">{% include 'okendo-reviews-product-rating-summary' %}</div>
+
+    {% if section.settings.show_vendor %}
+      <p class="product-single__vendor">{{ product.vendor }}</p>
+    {% endif %}
+
+    <div>
+{% if cart.attributes.flow_metafield_key %}
+      <p class="product-single__price hidden-mob product-single__price-{{ product.id }}{% unless current_variant.available %} product-price--sold-out{% endunless %}">
+                      {% if compare_at_price > price %}
+                             <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                             <s id="ComparePrice-{{ product.id }}" data-flow-localize=”item-price-attribute”
+	        data-flow-item-price-attribute=”msrp”>{% include 'flow_localized_price', flow_tag_display: 'compare_at' %}</s>	
+                             <span class="product-price__price product-price__price-{{ product.id }} product-price__sale product-price__sale--single">	
+                               <span id="ProductPrice-{{ product.id }}" class="bfx-price" data-flow-localize=”item-price”>{% include 'flow_localized_price', flow_tag_display: 'item_price' %}</span>	
+                               <span class="product-price__sale-label product-price__sale-label-{{ product.id }}">{{ 'products.product.on_sale' | t }}</span>	
+                             </span>	
+                         {% else %}	
+                           <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>	
+                           <s id="ComparePrice-{{ product.id }}" class="hide" data-flow-localize=”item-price-attribute”	
+        data-flow-item-price-attribute=”msrp”>{% include 'flow_localized_price', flow_tag_display: 'compare_at' %}</s>	
+                           <span class="product-price__price product-price__price-{{ product.id }}">	
+                             <span id="ProductPrice-{{ product.id }}" class="bfx-price" data-flow-localize=”item-price”>{% include 'flow_localized_price', flow_tag_display: 'item_price' %}</span>	
+                             <span class="product-price__sale-label product-price__sale-label-{{ product.id }} hide">{{ 'products.product.on_sale' | t }}</span>	
+                           </span>	
+                         {% endif %}
+      </p>      
+{%else %}      
+      <p class="product-single__price hidden-mob product-single__price-{{ product.id }}{% unless current_variant.available %} product-price--sold-out{% endunless %}">
+        {% if compare_at_price > price %}
+          <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+          <s id="ComparePrice-{{ product.id }}">{{ compare_at_price | money }}</s>
+          <span class="product-price__price product-price__price-{{ product.id }} product-price__sale product-price__sale--single">
+            <span id="ProductPrice-{{ product.id }}" class="bfx-price">{{ price | money }}</span>
+            <span class="product-price__sale-label product-price__sale-label-{{ product.id }}">{{ 'products.product.on_sale' | t }}</span>
+          </span>
+        {% else %}
+          <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+          <s id="ComparePrice-{{ product.id }}" class="hide">{{ compare_at_price | money }}</s>
+          <span class="product-price__price product-price__price-{{ product.id }}">
+            <span id="ProductPrice-{{ product.id }}" class="bfx-price">{{ price | money }}</span>
+            <span class="product-price__sale-label product-price__sale-label-{{ product.id }} hide">{{ 'products.product.on_sale' | t }}</span>
+          </span>
+        {% endif %}
+      </p>
+{%endif%}   
+      <div id="pdp-afterpay"></div>
+      <div class="hidden-mob">
+      {% assign words = product.description | split: '.' %}
+      {% for word in words %}
+      	{% if forloop.first %}
+      		{{ word | strip_html}}.
+      	{% endif %}
+      {% endfor %}
+      </div>
+
+      <form action="/cart/add" method="post" enctype="multipart/form-data" class="row align-items-end product-form product-form-{{ product.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ product.id }}">
+        {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
+          {% for option in product.options_with_values %}
+            <div class="selector-wrapper {{ product.handle }} js col">
+              <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
+                {{ option.name }}
+              </label>
+              <select class="single-option-selector single-option-selector-{{ product.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                {% for value in option.values %}
+                  <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            {% if settings.enable_colorswatch %}
+              {% include 'swatch' with option.name %}
+            {% endif %}
+
+          {% endfor %}
+        {% endunless %}
+
+        <select name="id" id="ProductSelect-{{ product.id }}" data-section="{{ product.id }}" class="product-form__variants col no-js">
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                {{ variant.title }}
+              </option>
+            {% else %}
+              <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+
+        {% if section.settings.show_quantity_selector %}
+          <div class="col product-form__item product-form__item--quantity">
+            <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
+          </div>
+        {% endif %}
+
+        <div class="col{% if settings.cartajax %}-60{% endif %} product-form__item product-form__item--submit">
+
+          <div class="button{% if product.options.size == 1 and product.variants[0].title == 'Default Title' and settings.cartajax == false %} product-form__cart-submit--small{% endif %}">
+            <div class="add">
+              <button type="submit" name="add" id="AddToCart-{{ product.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit">
+                <span id="AddToCartText-{{ product.id }}">
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {% if product.tags contains 'Coming Soon' %}
+                      {{ 'products.product.coming_soon' | t }}
+                    {% else %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% endif %}
+                  {% endunless %}
+                </span>
+              </button>
+              {% if settings.cartajax %}
+                <a class="btn checkout" href="/cart">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Checkout</span>
+                </a>
+                <a class="btn cont" href="{% if collection %}{{ collection.url }}{% else %}/collections/all{% endif %}">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i><span>Continue</span>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+      {% if section.settings.enable_wishlist %}
+        {% include 'wishlist' %}
+      {% endif %}
+
+    </div>
+    {%include "accordion" %}
+    {% if section.settings.show_share_buttons %}
+      {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+    {% endif %}
+  </div>
+</div>
+
+{% if settings.enable_colorswatch %}
+  <script type="text/javascript">
+    function updateSlideshow(color){
+      var $sliderEl = $('.product-single__thumbnails-item[data-variantcolor="'+ color +'"]:not(.slick-cloned)'),
+          sliderIndex = $sliderEl.data('slick-index');
+      setTimeout(function(){
+        $('.product-single__thumbnails').slick('slickGoTo',sliderIndex);
+        $sliderEl.addClass('active-thumb').siblings().removeClass('active-thumb');
+      },0);
+    }
+    $('.product-single__thumbnails').on('init', function(event, slick){
+      var color_selected = $('.swatch-element.color input:checked').val();
+      updateSlideshow(color_selected);
+    });
+    $(document).ready(function() {
+      $('.swatch :radio').change(function() {
+        var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+        var optionValue = jQuery(this).val();
+        if($(this).closest('.swatch-element').hasClass('color')) {
+          updateSlideshow(optionValue);
+        }
+        $(this)
+          .closest('form')
+          .find('.single-option-selector')
+          .eq(optionIndex)
+          .val(optionValue)
+          .trigger('change');
+      });
+      if($('form[data-prodid="{{ product.id }}"]').length) {
+        console.log('here');
+      }
+    });
+  </script>
+{% endif %}
+
+{% javascript %}
+  function review_check(num) {
+    var j = parseInt(num);
+    if($('.spr-reviews .spr-review').length > 0) {
+      $('i').changeElementType('em');
+    } else {
+      if(j < 20) {
+        j = num + 1;
+        setTimeout(function(){review_check(j)}, 1000);
+      }
+    }
+  }
+  $(document).ready(function(){
+    review_check(1);
+    $('.products-related').slick({
+      infinite: false,
+      arrows: false,
+      dots: true,
+      fade: true,
+      customPaging : function(slider, i) {
+        var tabtype = $(slider.$slides[i]).data('tabtype');
+        return '<a class="btn btn--secondary">'+tabtype+'</a>';
+      }
+    });
+  });
+{% endjavascript %}
+
+
+
+
+{% if settings.cartajax %}
+  <script>
+    $('#ProductSection-{{ product.id }} form').on('submit', function(e){
+      e.preventDefault();
+
+      $('#AddToCartText-{{ product.id }}').fadeOut(function() {
+        $(this).text('{{ 'products.product.added_to_cart' | t }}').fadeIn(function() {
+          setTimeout(function(){
+            $('.button').toggleClass('opened');
+            setTimeout(function(){
+              $('#AddToCartText-{{ product.id }}').text('{{ 'products.product.add_to_cart' | t }}')
+            },1000);
+          },1000);
+        });
+      });
+      setTimeout(function(){
+        $('.button').toggleClass('opened');
+      },10000);
+
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        dataType: 'json',
+        data: $(this).serialize(),
+        success: function(response){
+          $.ajax({
+            type: 'GET',
+            url: '/cart.js',
+            dataType: 'json',
+            success: function(cartdata){
+              if(!$('#CartCount').length) {
+                $('.site-header__cart').append('<div id="CartCount" class="site-header__cart-count"><span></span><span class="icon__fallback-text hidden-md-up">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span></div>');
+              }
+              $('#CartCount').find('span').first().text(cartdata.item_count);
+
+              {% if settings.cartdropdown %}
+                // Handlebars.js bralette layout
+                var source = $("#CartTemplate").html(),
+                    template = Handlebars.compile(source);
+
+                var allItems = cartdata.items,
+                    items = [],
+                    item = {};
+
+                // Add each item to our handlebars.js data
+                $.each(allItems, function(index,varItem) {
+                  var imageSmall = Shopify.resizeImage(varItem.image,'small');
+                  item = {
+                    id: varItem.id,
+                    title: varItem.product_title,
+                    variant: varItem.variant_title,
+                    url: varItem.url,
+                    price: Shopify.formatMoney(varItem.price, '${% raw %}{{amount}}{% endraw %}'),
+                    quantity: varItem.quantity,
+                    image: imageSmall
+                  };
+
+                  items.push(item);
+                });
+
+                // Gather all  data and add to DOM
+                data = {
+                  total: Shopify.formatMoney(cartdata.total_price, '${% raw %}{{amount}}{% endraw %}'),
+                  variants: items
+                }
+
+                $('.shopping-cart-col').html(template(data));
+              {% endif %}
+
+            },
+            error: function(data){
+              console.log(data);
+            }
+          });
+        },
+        error: function(data){
+          alert('Something went wrong! Please refresh the page and try again');
+        }
+      });
+      // console.log($(this).serializeArray())
+      // Shopify.addItem();
+    });
+  </script>
+
+  {% if settings.cartdropdown  %}
+    <script id="CartTemplate" type="text/template">
+      {% raw %}
+        <ul class="shopping-cart-items">
+          {{#variants}}
+            <li id="cart-item-{{id}}" class="item clearfix">
+              <a href="{{url}}" class="d-flex">
+                <img src="{{image}}" alt="{{title}}" />
+                <div class="product-details">
+                  <span class="item-name">{{title}}</span>
+                  <span class="item-option">
+                    {{#if variant}}
+                      <small>{{variant}}</small>
+                    {{/if}}
+                  </span>
+                  <span class="item-price">{{price}}</span>
+                  <span class="item-quantity">x {{quantity}}</span>
+                </div>
+              </a>
+            </li>
+          {{/variants}}
+        </ul>
+        <div class="shopping-cart-header">
+          {% endraw %}{{ 'cart.general.subtotal' | t }}{% raw %}: {{total}}
+        </div>
+        <a href="/cart" class="btn btn--secondary half">Cart</a>
+        <a href="/checkout" class="btn btn--secondary half">Checkout</a>
+      {% endraw %}
+    </script>
+  {% endif %}
+
+{% endif %}
+
+  {% comment %} Afterpay JS {% endcomment %}
+<script type="application/javascript" src="https://static-us.afterpay.com/javascript/present-afterpay.js" ></script>
+
+<script>
+function removeAfterpay() {
+  let oldAfterpay = document.querySelector('.afterpay-paragraph');
+
+  if(oldAfterpay) // Afterpay has already been placed on the page
+    oldAfterpay.remove();
+}
+function innerTextToAfterpayAmount(priceText) {
+  let trimmedPriceText = priceText.replace(/[^0-9]/g, '');
+  
+  let newAmount = Number(trimmedPriceText);
+
+  if(!priceText.includes('.'))
+    newAmount *= 100;
+  return newAmount;
+}
+const apProductConfig = {
+  //'priceSelector': '#product-form-right div.row div.col-60',   // REQUIRED: set to the div
+  'priceSelector': '#pdp-afterpay',   // REQUIRED: set to the div
+  'locale': 'en_US',            // REQUIRED: set to the locale for your site
+  'afterpayLogoColor': 'color', // optional: set to use black or white logo
+  'amount': {{product.price | json}},              // optional: set to item price or order total
+  showUpperLimit: false, // don't tell the user the max value
+  afterpayLogoColor: 'black',
+};
+let outerSelector = 'form.row.product-form';
+let actualPriceSelector = '.product-single__meta .product-price__price span.price-display' || apProductConfig.priceSelector;
+let observedSelector = outerSelector || apProductConfig.priceSelector;
+
+const targetNode = document.querySelector(observedSelector);
+const mutationConfig = { characterData: true, childList: true, subtree: true };
+
+const updateAfterpayAmount = function(mutations, observer) {
+  let { textContent } = document.querySelector(actualPriceSelector);
+  let newAmount = innerTextToAfterpayAmount(textContent);
+  
+  apProductConfig.amount = newAmount;
+  removeAfterpay();
+  new presentAfterpay(apProductConfig).init();
+  observer.takeRecords();
+}
+const cartObserver = new MutationObserver(updateAfterpayAmount);
+cartObserver.observe(targetNode, mutationConfig);
+  
+new presentAfterpay(apProductConfig).init();
+</script>
+
+<style>
+  #pdp-afterpay {
+    margin-top:-20px;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Product Form",
+    "class": "shopify-section-topspacing col-md-15 col-60",
+    "settings": [
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Image size",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "full",
+            "label": "Full-width"
+          }
+        ],
+        "default": "medium"
+      },
+      {
+        "type": "checkbox",
+        "id": "vertical",
+        "label": "Vertical thumbnails?",
+        "info": "Works best when 'Image size' is larger"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quantity_selector",
+        "label": "Show quantity selector",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_variant_labels",
+        "label": "Show variant labels",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_zoom",
+        "label": "Enable image zoom",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

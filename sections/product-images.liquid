@@ -1,0 +1,199 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign product_thumb_size = '1000x' -%}
+{%- assign product_image_zoom_size = '1024x1024' -%}
+{%- assign enable_zoom = section.settings.enable_zoom -%}
+
+{% case section.settings.image_size %}
+  {% when 'small' %}
+    {%- assign product_image_width = 'col-md-20' -%}
+    {%- assign product_description_width = 'col-md-40' -%}
+    {%- assign product_thumbnail_width = 'col-md-30' -%}
+    {%- assign product_thumbnail_perrow = '2' %}
+    {%- assign product_image_size = '345x' -%}
+  {% when 'medium' %}
+    {%- assign product_image_width = 'col-md-30' -%}
+    {%- assign product_description_width = 'col-md-30' -%}
+    {%- assign product_thumbnail_width = 'col-md-30' -%}
+    {%- assign product_thumbnail_perrow = '2' %}
+    {%- assign product_image_size = '530x' -%}
+  {% when 'large' %}
+    {%- assign product_image_width = 'col-md-40' -%}
+    {%- assign product_description_width = 'col-md-20' -%}
+    {%- assign product_thumbnail_width = 'col-md-30' -%}
+    {%- assign product_thumbnail_perrow = '2' %}
+    {%- assign product_image_size = '720x' -%}
+  {% when 'full' %}
+    {%- assign product_image_width = '' -%}
+    {%- assign product_description_width = '' -%}
+    {%- assign product_thumbnail_width = 'col-md-30' -%}
+    {%- assign product_thumbnail_perrow = '2' %}
+    {%- assign product_image_size = '1090x' -%}
+    {%- assign enable_zoom = false -%}
+{% endcase %}
+
+{%- assign product_thumbnail_perrow = product_thumbnail_perrow | times: 1 -%}
+
+<div class="product-single__photos {{ product_image_width }} col-60 {% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
+  {%- assign featured_img_src = current_variant.featured_image.src | default: product.featured_image.src -%}
+  {%- assign featured_img_alt = current_variant.featured_image.alt | default: product.featured_image.alt -%}
+
+  {% if settings.enable_crossclick %}
+    {%- assign prod_image_size = 0 -%}
+    {% for image in product.images %}
+      {% if image.attached_to_variant? %}
+        {%- assign prod_image_size = prod_image_size | plus: 1 -%}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {%- assign prod_image_size = product.images.size -%}
+  {% endif %}
+
+  {% if section.settings.vertical and prod_image_size > 1 %}
+    <div class="row vertical-thumbs">
+      <div class="col-lg-50 push-lg-10">
+  {% endif %}
+
+  <div style="display:none;" id="FeaturedImageZoom-{{ product.id }}" class="product-single__photo{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}" {% if enable_zoom %}data-zoom="{{ featured_img_src | img_url: product_image_zoom_size }}"{% endif %}>
+    <img src="{{ featured_img_src | img_url: "1x"}}" alt="{{ featured_img_alt }}" id="FeaturedImage-{{ product.id }}" class="product-featured-img{% if enable_zoom %} js-zoom-enabled{% endif %}">
+  </div>
+
+  {% if prod_image_size > product_thumbnail_perrow %}
+    {%- assign enable_buttons = true -%}
+  {% endif %}
+
+  {% if prod_image_size > 0 %}
+
+  {% if section.settings.vertical and prod_image_size > 0 %}
+    </div>
+    <div class="col-lg-10 pull-lg-50">
+  {% endif %}
+
+    <div class="thumbnails-wrapper">
+
+      {% if enable_buttons == true %}<a id="prevArrow" class="slick-prev"><i class="fa fa-angle-{% if section.settings.vertical %}up{% else %}left{% endif %}"></i></a>{% endif %}
+      <ul class="product-single__thumbnails product-single__thumbnails-{{ product.id }}">
+
+        {% if settings.enable_crossclick %}
+
+          {%- assign attach_tot = 0 -%}
+          {%- assign cross_need = false -%}
+          {% for image in product.images %}
+            {% if image.attached_to_variant? %}
+              {%- assign attach_tot = attach_tot | plus: 1 -%}
+              {% include 'loop-thumbnail' %}
+            {% endif %}
+          {% endfor %}
+
+          {% unless attach_tot == product.images.size %}
+            {%- assign cross_need = true -%}
+          {% endunless %}
+
+        {% else %}
+
+          {% for image in product.images %}
+        	{%- assign image_alt = image.alt | downcase -%}
+        	{% unless image_alt contains 'detail shot' %}
+              {% include 'loop-thumbnail' %}
+            {% endunless %}
+          {% endfor %}
+
+        {% endif %}
+
+      </ul>
+      {% if enable_buttons == true %}<a id="nextArrow" class="slick-next"><i class="fa fa-angle-{% if section.settings.vertical %}down{% else %}right{% endif %}"></i></a>{% endif %}
+
+    </div>
+  {% endif %}
+
+  {% if section.settings.vertical and prod_image_size > 0 %}
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+
+<style>
+  .product-single__thumbnails .product-single__thumbnails-item:not(.slick-slide) {
+    float: left;
+    width: 50%;
+  }
+</style>
+
+<script>
+  $(window).load(function(){
+    $('.product-single__thumbnails').slick({
+      infinite: true,
+      arrows:true,
+      dots:true,
+      focusOnSelect:true,
+      slidesToShow: 2,
+      prevArrow: $('#prevArrow'),
+      nextArrow: $('#nextArrow'),
+
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            vertical: false,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 576,
+          settings: {
+              slidesToShow: 1,
+            vertical: false
+          }
+        }
+      ]
+    });
+
+  });
+  
+</script>
+
+{% schema %}
+  {
+    "name": "Product Images",
+    "class": "shopify-section-topspacing section-prodimg col-md-45 col-60",
+    "settings": [
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Image size",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "full",
+            "label": "Full-width"
+          }
+        ],
+        "default": "medium"
+      },
+      {
+        "type": "checkbox",
+        "id": "vertical",
+        "label": "Vertical thumbnails?",
+        "info": "Works best when 'Image size' is larger"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_zoom",
+        "label": "Enable image zoom",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

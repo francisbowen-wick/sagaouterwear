@@ -1,0 +1,12 @@
+<div class="buttons-wrap">
+  {% if block.settings.button_1_link != blank %}
+    <a href="{{ block.settings.button_1_link }}"{% if block.settings.button_1_link contains 'http' %} target="_blank"{% endif %}>
+      <span class="btn slideshow__button1">{{ block.settings.button_1_text }}</span>
+    </a>
+  {% endif %}
+  {% if block.settings.button_2_link != blank %}
+    <a href="{{ block.settings.button_2_link }}"{% if block.settings.button_2_link contains 'http' %} target="_blank"{% endif %}>
+      <span class="btn slideshow__button2">{{ block.settings.button_2_text }}</span>
+    </a>
+  {% endif %}
+</div>
