@@ -1,0 +1,75 @@
+
+{%- assign img_url = '' -%}
+  {% style %}
+    .image-bar__item--{{ block.id }} {
+      background-position: {{ block.settings.alignment }};
+      {% if right_first %}
+        height: 100%;
+      {% endif %}
+    }
+
+    {% if block.settings.enable_hover %}
+      #block-{{ block.id }}:hover  #image-bar__item--{{ block.id }} {
+        opacity: 0.6;
+      }
+
+      #block-{{ block.id }}:hover .hover_text {
+        opacity: 1;
+      }
+    {% endif %}
+  {% endstyle %}
+
+  {% if block.settings.enable_hover %}
+    {% style %}
+      #block-{{ block.id }} .hover_text {
+        opacity: 0;
+        z-index: 5;
+      }
+    {% endstyle %}
+  {% endif %}
+  
+  {% if block.settings.hover_text != blank  %}
+    {% style %}
+      #block-{{ block.id }} .hover_text {
+        font-size: {{ block.settings.hover_text_font }}px;
+        color: {{ block.settings.hover_text_color }};
+      }
+    {% endstyle %}
+
+    {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+      <h3 class="image-bar__caption hover_text">{{ block.settings.hover_text | escape }}</h3>
+    {% if block.settings.link != blank %}</a>{% endif %}
+    
+  {% endif %}
+
+  {% if block.settings.cta_label != blank %}
+    <h3 class="image-bar__caption">{{ block.settings.cta_label | escape }}</h3>
+  {% endif %}
+
+  {% if block.settings.image != blank %}
+    {%- assign img_url = block.settings.image | img_url: '500x' -%}
+  {% else %}
+    {%- assign img_url = '' -%}
+  {% endif %}
+  {% if block.settings.link != blank %}
+    <a href="{{ block.settings.link }}" 
+      id="image-bar__item--{{ block.id }}"
+      class="image-bar__item image-bar__link image-bar__item--{{ block.id }}" 
+      {% unless img_url == blank %}style="background-image: url({{ img_url }});"{% endunless %}>
+  {% elsif img_url != blank %}
+    <div class="image-bar__item image-bar__item--{{ block.id }}" 
+      id="image-bar__item--{{ block.id }}"
+      style="background-image: url({{ img_url }});">
+  {% else %}
+    <div class="image-bar__item">
+  {% endif %}
+  <div class="image-bar__content{% if block.settings.cta_label != blank %} image-bar__overlay{% endif %}">
+    {% if img_url == blank %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+  {% if block.settings.link != blank %}
+    </a>
+  {% else %}
+    </div>
+  {% endif %}

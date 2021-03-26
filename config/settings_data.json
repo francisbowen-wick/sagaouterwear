@@ -756,7 +756,6 @@
         "type": "hero",
         "settings": {
           "image": "shopify:\/\/shop_images\/pdpdesc.jpg",
-          "mobile_image": "",
           "contained": "container-fluid",
           "overlay": true,
           "parallax_me": false,
@@ -774,42 +773,6 @@
           "text_align": "center"
         }
       },
-      "slideshow-prod": {
-        "type": "slideshow-prod",
-        "blocks": {
-          "1568264412343": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/functionmenu-white_be120fad-5963-4cca-8c70-f65e653ff9d1.jpg",
-              "secondimage": "",
-              "centerimage": "",
-              "overlay": false,
-              "textunderlay": false,
-              "alignment": "top",
-              "text_layout": "center",
-              "text_align": "center",
-              "title": "",
-              "heading_color": "",
-              "subheading": "",
-              "subheading_color": "",
-              "button": "",
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "1568264412343"
-        ],
-        "settings": {
-          "contained": "container-fluid",
-          "autoplay": true,
-          "autoplay_speed": "7000",
-          "dots": false,
-          "arrows": false,
-          "slideshow_height": "maintain_ratio",
-          "text_size": "medium"
-        }
-      },
       "logo-bar": {
         "type": "logo-bar",
         "blocks": {
@@ -817,152 +780,133 @@
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/sagatek-3l.jpg",
-              "title": "tech-sagatek3l",
-              "link": ""
+              "title": "tech-sagatek3l"
             }
           },
           "1571767361742": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/sagatek-2l.jpg",
-              "title": "tech-sagatek2l",
-              "link": ""
+              "title": "tech-sagatek2l"
             }
           },
           "1571796452305": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/sagatek.jpg",
-              "title": "tech-sagatek",
-              "link": ""
+              "title": "tech-sagatek"
             }
           },
           "1571796396811": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/sagatek-fleece.jpg",
-              "title": "tech-sagatekfleece",
-              "link": ""
+              "title": "tech-sagatekfleece"
             }
           },
           "1571769694468": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/3layer.jpg",
-              "title": "tech-3l",
-              "link": ""
+              "title": "tech-3l"
             }
           },
           "1571766239726": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/2layer.jpg",
-              "title": "tech-2l",
-              "link": ""
+              "title": "tech-2l"
             }
           },
           "1568325223313": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/insulated.jpg",
-              "title": "tech-insulated",
-              "link": ""
+              "title": "tech-insulated"
             }
           },
           "1568325196932": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/wp10k.jpg",
-              "title": "tech-wp10k",
-              "link": ""
+              "title": "tech-wp10k"
             }
           },
           "1571768568336": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/br10k.jpg",
-              "title": "tech-br10k",
-              "link": ""
+              "title": "tech-br10k"
             }
           },
           "1571769449586": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/wp15k.jpg",
-              "title": "techwp15k",
-              "link": ""
+              "title": "techwp15k"
             }
           },
           "1571769428814": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/wp20k.jpg",
-              "title": "tech-wp20k",
-              "link": ""
+              "title": "tech-wp20k"
             }
           },
           "1571768651882": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/br15k.jpg",
-              "title": "tech-br15k",
-              "link": ""
+              "title": "tech-br15k"
             }
           },
           "1571768690919": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/br20k.jpg",
-              "title": "tech-br20k",
-              "link": ""
+              "title": "tech-br20k"
             }
           },
           "1568325245926": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/seamtaped.jpg",
-              "title": "tech-seamtaped",
-              "link": ""
+              "title": "tech-seamtaped"
             }
           },
           "1571770274250": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/criticalseamtaped.jpg",
-              "title": "tech-criticalseamtaped",
-              "link": ""
+              "title": "tech-criticalseamtaped"
             }
           },
           "1568325212434": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/dwr.jpg",
-              "title": "tech-dwr",
-              "link": ""
+              "title": "tech-dwr"
             }
           },
           "1568325263993": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/ykk.jpg",
-              "title": "tech-ykk",
-              "link": ""
+              "title": "tech-ykk"
             }
           },
           "1571771643333": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/storm-skirt.jpg",
-              "title": "tech-stormskirt",
-              "link": ""
+              "title": "tech-stormskirt"
             }
           },
           "1571767622318": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/audio.jpg",
-              "title": "tech-audio",
-              "link": ""
+              "title": "tech-audio"
             }
           }
         },
@@ -1359,6 +1303,7 @@
       },
       "1578328454341": {
         "type": "slideshow-imagetypes",
+        "disabled": true,
         "blocks": {
           "1578328454341-0": {
             "type": "image_w_overlay",
@@ -1500,53 +1445,16 @@
           "1601905716240"
         ],
         "settings": {
+          "ptop": 0,
+          "pbottom": 10,
+          "ptop_mob": 0,
+          "pbottom_mob": 5,
           "contained": "container-fluid",
           "autoplay": true,
           "autoplay_speed": "5000",
           "dots": true,
           "arrows": false,
           "slideshow_height": "maintain_ratio"
-        }
-      },
-      "1601425007163": {
-        "type": "image-bar",
-        "disabled": true,
-        "blocks": {
-          "1601425007163-0": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/SagaOuterwear-F20-Empress3LJacket_0000s_0003_SAGA_90.jpg",
-              "alignment": "center",
-              "link": "shopify:\/\/collections\/all-womens",
-              "cta_label": ""
-            }
-          },
-          "1601425007163-1": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/SagaOuterwear-F20-FleeceridingPullover_0000s_0004_Saga_-_FW20_Midlayers_Hoodies_drwclrk-1508.jpg",
-              "alignment": "center",
-              "link": "shopify:\/\/collections\/mens-apparel",
-              "cta_label": ""
-            }
-          },
-          "1601425007163-2": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/SagaOuterwear-F20-FleeceTekPullover-Mens_0000s_0001_Saga_-_FW20_Midlayers_Hoodies_drwclrk-0595.jpg",
-              "alignment": "center",
-              "link": "shopify:\/\/products\/fleece-tek-pullover-mens",
-              "cta_label": ""
-            }
-          }
-        },
-        "block_order": [
-          "1601425007163-0",
-          "1601425007163-1",
-          "1601425007163-2"
-        ],
-        "settings": {
-          "section_height": "medium"
         }
       },
       "megamenu1": {
@@ -1565,104 +1473,261 @@
           "show_share_buttons": true
         }
       },
-      "1603430897122": {
-        "type": "juicer",
-        "settings": {
-          "feed_id": "sagaouterwear"
-        }
-      },
-      "16068473025e076cbc": {
-        "type": "alternating-blocks",
+      "1616569062238df578": {
+        "type": "slideshow-imagetypes",
         "blocks": {
-          "16068473025e076cbc-0": {
-            "type": "row",
+          "164734c3-7313-4801-b085-99f04563e7eb": {
+            "type": "image_text_hover",
             "settings": {
-              "benefit_color": "#ffffff",
-              "benefit_bg": "shopify:\/\/shop_images\/SagaOuterwear-Rosina-FIHPshoot-Multi-1-1920x1080.jpg",
-              "benefit_title": "SAGA BLOG",
-              "title_color": "#000000",
-              "benefit_copy": "Stay up to date with the Saga Team all year long as they take us to new places and share their adventures.",
-              "copy_color": "#6a6d71",
-              "link_text": "Read More",
-              "link_url": "https:\/\/www.sagaouterwear.com\/blogs\/news"
+              "title": "Friends in high places",
+              "subheading": "SPRING\/SUMMER",
+              "title-font": 60,
+              "heading_color": "#ffffff",
+              "subheading-font": 28,
+              "subheading_color": "#ffffff",
+              "text_layout": "center",
+              "image": "shopify:\/\/shop_images\/hero_55d16f9c-6194-4bbe-8310-e174cc35bb44.png",
+              "alignment": "top",
+              "text_layout_vert": "center",
+              "mobilealignment": "center",
+              "text_align_mobile": "center",
+              "hide_title_mobile": false,
+              "hide_subheading_mobile": false,
+              "enable_hover": true,
+              "hover_text": "NEW ARRIVALS - RECENT DROP",
+              "hover_text_color": "#000000",
+              "hover_text_font": 38
             }
           }
         },
         "block_order": [
-          "16068473025e076cbc-0"
+          "164734c3-7313-4801-b085-99f04563e7eb"
         ],
         "settings": {
-          "title": "Brand Benefit Rows",
-          "full_width": true,
-          "row_size": "500px"
+          "ptop": 0,
+          "pbottom": 10,
+          "ptop_mob": 0,
+          "pbottom_mob": 5,
+          "contained": "container-fluid",
+          "autoplay": true,
+          "autoplay_speed": "5000",
+          "dots": false,
+          "arrows": true,
+          "slideshow_height": "maintain_ratio"
         }
       },
-      "160684789083d37b57": {
-        "type": "feature-row",
-        "disabled": true,
-        "settings": {
-          "image": "shopify:\/\/shop_images\/SagaOuterwear-TimMcChesney-TIOS-2.jpg",
-          "layout": "left",
-          "title": "By Definition, a Saga is:",
-          "text": "<p>* A dramatic history of a group, place, industry<\/p><p><\/p><p> * Any very long story with dramatic events<\/p><p><\/p><p>From the very beginning  Saga looked at the  outerwear industry hill to  climb as an exciting  challenge. We broke into the outerwear industry because no other brands were providing products that fit the bodies and needs of the athletes we surrounded ourselves with.<\/p><p><\/p><p>We stood up against every other brand, small and large, and watched over the years as they came and went. But we stayed. We stayed because we believe in what the brand stands for and what the brand provides to the community and to you. We stayed because the community continued to support us.<\/p><p><\/p><p>Even after a year when our warehouse was broken into and hundreds of thousands of dollars of unreleased product was stolen from us, the community stuck with us and we survived.<\/p><p><\/p><p>Even after we were forced to reduce our staff to bare bones and move from our home in Salt Lake City to Boulder, Co, the community stuck with us and we survived.<\/p><p><\/p><p>And most recently when our entire staff was furloughed because of the Covid-19 pandemic and the brand went into “sleep mode”, the community stuck with us.<\/p><p><\/p><p>This is our Saga, it’s truly never-ending.  Our passion for snow and creating products to support your love of the slopes. We aren’t going anywhere. Our passion for snow and your support for the brand continues to keep us going stronger than ever.<\/p>",
-          "button_label": ""
-        }
-      },
-      "16134869991821cf69": {
-        "type": "collection-list",
+      "1616569393364a6d3a": {
+        "type": "new-gallery",
         "blocks": {
-          "16134869991821cf69-0": {
-            "type": "featured_collection",
+          "1616569393364a6d3a-0": {
+            "type": "image",
             "settings": {
-              "collection": "all-mens",
-              "title": "MEN'S",
-              "collectionimage": "shopify:\/\/shop_images\/SagaOuterwear-HomePage-AnomieJacket-WebsiteHero.png",
-              "colwidth": "3",
-              "alignment": "top"
+              "image": "shopify:\/\/shop_images\/3-column_ff2d78ff-9d6e-43ef-80df-0b7ebf3a5fc7.png",
+              "alignment": "center",
+              "link": "shopify:\/\/products\/anomie-bib-pant-mens",
+              "enable_hover": true,
+              "hover_text": "WOMENS OUTERWEAR",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
             }
           },
-          "16134869991821cf69-1": {
-            "type": "featured_collection",
+          "1616569393364a6d3a-1": {
+            "type": "image",
             "settings": {
-              "collection": "all-womens",
-              "title": "WOMEN'S",
-              "collectionimage": "shopify:\/\/shop_images\/F20-RosinaFriedel-Osttirol-8.jpg",
-              "colwidth": "3",
-              "alignment": "bottom"
+              "image": "shopify:\/\/shop_images\/3-column-1.png",
+              "alignment": "center",
+              "enable_hover": true,
+              "hover_text": "HEADWEAR",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
             }
           },
-          "16134869991821cf69-2": {
-            "type": "featured_collection",
+          "1616569393364a6d3a-2": {
+            "type": "image",
             "settings": {
-              "collection": "tek-layers",
-              "title": "TEK LAYERS",
-              "collectionimage": "shopify:\/\/shop_images\/SagaOuterwear-F20-FleeceTekPullover-Mens_0000s_0001_Saga_-_FW20_Midlayers_Hoodies_drwclrk-0595.jpg",
-              "colwidth": "3",
-              "alignment": "top"
+              "image": "shopify:\/\/shop_images\/3-column-2.png",
+              "alignment": "center",
+              "enable_hover": true,
+              "hover_text": "NEW TEES",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
             }
           }
         },
         "block_order": [
-          "16134869991821cf69-0",
-          "16134869991821cf69-1",
-          "16134869991821cf69-2"
+          "1616569393364a6d3a-0",
+          "1616569393364a6d3a-1",
+          "1616569393364a6d3a-2"
         ],
         "settings": {
-          "title": "SHOP FEATURED COLLECTIONS",
-          "full_width": true,
-          "no_gutters": false,
-          "remove_top_margin": false,
-          "move_text_below": true
+          "visible": true,
+          "ptop": 0,
+          "pbottom": 10,
+          "ptop_mob": 0,
+          "pbottom_mob": 5,
+          "section_height": "maintain_ratio"
+        }
+      },
+      "1616569443525d629a": {
+        "type": "new-gallery",
+        "blocks": {
+          "1616569443525d629a-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2-column.png",
+              "alignment": "center",
+              "enable_hover": true,
+              "hover_text": "SWIM SHORTS",
+              "hover_text_color": "#000000",
+              "hover_text_font": 38
+            }
+          },
+          "1616569443525d629a-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2-column-1_dc5c7ade-8d8d-4767-9e81-c9634a4bdf05.png",
+              "alignment": "center",
+              "enable_hover": true,
+              "hover_text": "MENS OUTERWEAR",
+              "hover_text_color": "#000000",
+              "hover_text_font": 38
+            }
+          }
+        },
+        "block_order": [
+          "1616569443525d629a-0",
+          "1616569443525d629a-1"
+        ],
+        "settings": {
+          "visible": true,
+          "ptop": 0,
+          "pbottom": 10,
+          "ptop_mob": 0,
+          "pbottom_mob": 5,
+          "section_height": "maintain_ratio"
+        }
+      },
+      "1616569962a65c6096": {
+        "type": "new-gallery-multiple-row",
+        "blocks": {
+          "b058fb74-c67c-4928-8114-8f6c0e596e63": {
+            "type": "left",
+            "settings": {
+              "enable": true,
+              "image": "shopify:\/\/shop_images\/complex-1.png",
+              "alignment": "center",
+              "image_column_width": 15,
+              "enable_hover": false,
+              "hover_text": "",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
+            }
+          },
+          "b67b70bb-32ec-4e09-9313-9ca1a9122e67": {
+            "type": "left",
+            "settings": {
+              "enable": true,
+              "image": "shopify:\/\/shop_images\/complex-2.png",
+              "alignment": "center",
+              "image_column_width": 45,
+              "enable_hover": false,
+              "hover_text": "",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
+            }
+          },
+          "3f05f856-f750-4cff-a31a-fa85c2fe2a70": {
+            "type": "left",
+            "settings": {
+              "enable": true,
+              "image": "shopify:\/\/shop_images\/complex-3.png",
+              "alignment": "center",
+              "image_column_width": 30,
+              "enable_hover": true,
+              "hover_text": "WINTERS ACCESSORIES",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
+            }
+          },
+          "bcecc71f-74f6-4f26-b263-4866145849fd": {
+            "type": "left",
+            "settings": {
+              "enable": true,
+              "image": "shopify:\/\/shop_images\/complex-4_dec96796-4234-4301-acd4-2b31ac33f35d.png",
+              "alignment": "center",
+              "image_column_width": 30,
+              "enable_hover": false,
+              "hover_text": "",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
+            }
+          },
+          "7813ddd4-f46b-4c86-ba65-086f74c155da": {
+            "type": "right",
+            "settings": {
+              "enable": true,
+              "image": "shopify:\/\/shop_images\/complex-right-1.png",
+              "alignment": "center",
+              "image_column_width": 30,
+              "link": "shopify:\/\/products\/aspen-pant-womens-2018",
+              "enable_hover": true,
+              "hover_text": "SHOP SNOW",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
+            }
+          },
+          "fb2b5536-d9d7-4ab5-a610-cf1628655e11": {
+            "type": "right",
+            "settings": {
+              "enable": true,
+              "image": "shopify:\/\/shop_images\/complex-right-2.png",
+              "alignment": "center",
+              "image_column_width": 30,
+              "enable_hover": true,
+              "hover_text": "BAGS",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
+            }
+          },
+          "cb6b57d0-8f7c-4283-a16c-69ebc2153c60": {
+            "type": "right",
+            "settings": {
+              "enable": true,
+              "image": "shopify:\/\/shop_images\/complex-right-3.png",
+              "alignment": "center",
+              "image_column_width": 30,
+              "enable_hover": false,
+              "hover_text": "",
+              "hover_text_color": "#000000",
+              "hover_text_font": 30
+            }
+          }
+        },
+        "block_order": [
+          "b058fb74-c67c-4928-8114-8f6c0e596e63",
+          "b67b70bb-32ec-4e09-9313-9ca1a9122e67",
+          "3f05f856-f750-4cff-a31a-fa85c2fe2a70",
+          "bcecc71f-74f6-4f26-b263-4866145849fd",
+          "7813ddd4-f46b-4c86-ba65-086f74c155da",
+          "fb2b5536-d9d7-4ab5-a610-cf1628655e11",
+          "cb6b57d0-8f7c-4283-a16c-69ebc2153c60"
+        ],
+        "settings": {
+          "visible": true,
+          "ptop": 0,
+          "pbottom": 0,
+          "ptop_mob": 0,
+          "pbottom_mob": 0,
+          "section_height": "small"
         }
       }
     },
     "content_for_index": [
       "1578328454341",
-      "16134869991821cf69",
-      "1601425007163",
-      "16068473025e076cbc",
-      "160684789083d37b57",
-      "1603430897122"
+      "1616569062238df578",
+      "1616569393364a6d3a",
+      "1616569443525d629a",
+      "1616569962a65c6096"
     ]
   },
   "presets": {
