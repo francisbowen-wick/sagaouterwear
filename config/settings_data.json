@@ -229,7 +229,7 @@
           "layout": "grid",
           "grid": "3",
           "rows": "8",
-          "show_collection_image": true,
+          "show_collection_image": false,
           "show_vendor": false,
           "sort_enable": false,
           "tags_enable": false

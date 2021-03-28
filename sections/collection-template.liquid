@@ -66,133 +66,129 @@
   <div class="container-fluid" id="Collection">
     <div class="row">
 
+      {% if section.settings.show_collection_image %}
       <div class="col-md-15">
-        <div class="collection-hero" style="padding:20px; height:100vh;">
-          <style>
+        <style>
+          .collection-hero {
+            background-image: url({{ collection.image | img_url: '1600x' }});
+            background-size: cover;
+            background-position: top center;
+          }
+
+          @media only screen and (max-width: 1200px) {
             .collection-hero {
-              background-image: url({{ collection.image | img_url: '1600x' }});
+              background-image:url('{{ collection.image | img_url: '1280x' }}');
               background-size: cover;
               background-position: top center;
             }
-
-            @media only screen and (max-width: 1200px) {
-              .collection-hero {
-                background-image:url('{{ collection.image | img_url: '1280x' }}');
-                  background-size: cover;
-                  background-position: top center;
-                  }
+          }
+          @media only screen and (max-width: 992px) {
+            .collection-hero {
+              background-image:url('{{ collection.image | img_url: '992x' }}'); 
+              background-size: cover;
+              background-position: top center;
             }
-            @media only screen and (max-width: 992px) {
-              .collection-hero {
-                background-image:url('{{ collection.image | img_url: '992x' }}'); 
-                  background-size: cover;
-                  background-position: top center;
-                  }
+          }
+          @media only screen and (max-width: 768px) {
+            .collection-hero {
+              background-image:url('{{ collection.image | img_url: '768x' }}'); 
+              background-size: cover;
+              background-position: top center;
             }
-            @media only screen and (max-width: 768px) {
-              .collection-hero {
-                background-image:url('{{ collection.image | img_url: '768x' }}'); 
-                  background-size: cover;
-                  background-position: top center;
-                  }
+          }
+          @media only screen and (max-width: 576px) {
+            .collection-hero {
+              background-image:url('{{ collection.image| img_url: '576x' }}'); 
+              background-size: cover;
+              background-position: top center;
             }
-            @media only screen and (max-width: 576px) {
-              .collection-hero {
-                background-image:url('{{ collection.image| img_url: '576x' }}'); 
-                  background-size: cover;
-                  background-position: top center;
-                  }
-            }
-          </style>
-          <script>
-            $(document).ready(function(){
-              $('.collection-hero').stick_in_parent();
-            });
-          </script>
-
-          <div class="collection-hero__title-wrapper" style="    background: white;
-                                                             text-align: center;
-                                                             padding: 40px 20px;
-                                                             bottom: 20px;
-                                                             position: absolute;
-                                                             right: 20px;
-                                                             left: 20px;">
-
+          }
+        </style>
+        <div class="collection-hero" style="padding:20px; height:100vh;">
+          <div class="collection-hero__title-wrapper" 
+            style="background: white;text-align: center;padding: 40px 20px;
+              bottom: 20px;position: absolute;right: 20px;left: 20px;">
             <h1>{{ collection.title }}</h1>
             <p> {{ collection.description }}</p>
-
-
           </div>
         </div>
-      </div>
 
-			<div class="col-lg-45">
+        <script>
+          $(document).ready(function(){
+            $('.collection-hero').stick_in_parent();
+          });
+        </script>
+      </div>
+      {% endif %}
+
+			<div class="{% if section.settings.show_collection_image %}col-lg-45{% else %}col-lg-60{% endif %}">
 		    {% if section.settings.layout == 'grid' %}
 					<div class="row{% if collection.products_count > 0 %} grid--view-items{% endif %}">
-			      {% case section.settings.grid %}
-				      {% when '2' %}
-				        {%- assign grid_item_width = 'col-md-30' -%}
-				        {%- assign image_size = '540x600' -%}
-				      {% when '3' %}
-				        {%- assign grid_item_width = 'col-md-20 col-sm-30' -%}
-				        {%- assign image_size = '345x550' -%}
-				      {% when '4' %}
-				        {%- assign grid_item_width = 'col-md-15 col-sm-30' -%}
-				        {%- assign image_size = '250x' -%}
-				      {% when '5' %}
-				        {%- assign grid_item_width = 'col-md-12 col-sm-30' -%}
-				        {%- assign image_size = '195x' -%}
-			      {% endcase %}
-			        {% for product in collection.products %}
-			          {% if ad != "false" %}
-			        		{% if active %}
-		            		{% if forloop.index == position %}
-                  		{% if activeone %}
-                            <div class="grid__item {{ grid_item_width }}">
-                              <div class="grid-view-item" style="margin:0px;padding:0px;">
-                                <div class="grid-view-item" style="margin:0px;padding:0px;">
-                                  <{% if link %}a href="{{ link }}"{% else %}span{% endif %} class="grid-view-item__image {% if link %}animsition-link{% endif %}" style="{% if textoverlay %}{% else %}padding-top: 100%;{% endif %}background-image:url({{ imageone | img_url: image_size }});background-position:{{ alignment }};background-size:cover;">
-                                    {% if textoverlay %}
-                                    <div class="collectionad">
-                                      <div class="h4 grid-view-item__title">
-                                        {{ title }}
-                                      </div>
-                                      <div class="grid-view-item__meta">
-                                        {{ adcopy}}
-                                        {% if link %}
-                                        <br/><span style="margin-top:10px;" class="btn">{{ adcta}}</span>
-                                        {% endif %}
-                                      </div>
-                                    </div>
-                                    {% endif %}
-                                    </{% if link %}a{% else %}span{% endif %}>
-                                </div>
+          {% case section.settings.grid %}
+            {% when '2' %}
+              {%- assign grid_item_width = 'col-md-30' -%}
+              {%- assign image_size = '540x600' -%}
+            {% when '3' %}
+              {%- assign grid_item_width = 'col-md-20 col-sm-30' -%}
+              {%- assign image_size = '345x550' -%}
+            {% when '4' %}
+              {%- assign grid_item_width = 'col-md-15 col-sm-30' -%}
+              {%- assign image_size = '250x' -%}
+            {% when '5' %}
+              {%- assign grid_item_width = 'col-md-12 col-sm-30' -%}
+              {%- assign image_size = '195x' -%}
+          {% endcase %}
+
+          {% for product in collection.products %}
+            {% if ad != "false" %}
+              {% if active %}
+                {% if forloop.index == position %}
+                  {% if activeone %}
+                    <div class="grid__item {{ grid_item_width }}">
+                      <div class="grid-view-item" style="margin:0px;padding:0px;">
+                        <div class="grid-view-item" style="margin:0px;padding:0px;">
+                          <{% if link %}a href="{{ link }}"{% else %}span{% endif %} class="grid-view-item__image {% if link %}animsition-link{% endif %}" style="{% if textoverlay %}{% else %}padding-top: 100%;{% endif %}background-image:url({{ imageone | img_url: image_size }});background-position:{{ alignment }};background-size:cover;">
+                            {% if textoverlay %}
+                            <div class="collectionad">
+                              <div class="h4 grid-view-item__title">
+                                {{ title }}
+                              </div>
+                              <div class="grid-view-item__meta">
+                                {{ adcopy}}
+                                {% if link %}
+                                <br/><span style="margin-top:10px;" class="btn">{{ adcta}}</span>
+                                {% endif %}
                               </div>
                             </div>
-	        				{% endif %}
+                            {% endif %}
+                            </{% if link %}a{% else %}span{% endif %}>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
 	        			{% elsif forloop.index == positiontwo %}
-                  		{% if activetwo %}
-                            <div class="grid__item {{ grid_item_width }}">
-                              <div class="grid-view-item" style="margin:0px;padding:0px;">
-                                <div class="grid-view-item" style="margin:0px;padding:0px;">
-                                  <{% if linktwo %}a href="{{ linktwo }}"{% else %}span{% endif %} class="grid-view-item__image {% if linktwo %}animsition-link{% endif %}" style="{% if textoverlaytwo %}{% else %}padding-top: 100%;{% endif %}background-image:url({{ imagetwo | img_url: image_size }});background-position:{{ alignmenttwo }};background-size:cover;">
-                                    {% if textoverlaytwo %}
-                                    <div class="collectionad">
-                                      <div class="h4 grid-view-item__title">
-                                        {{ titletwo }}
-                                      </div>
-                                      <div class="grid-view-item__meta">
-                                        {{ adcopytwo}}
-                                        {% if linktwo %}
-                                        <br/><span style="margin-top:10px;" class="btn">{{ adctatwo }}</span>
-                                        {% endif %}
-                                      </div>
-                                    </div>
-                                    {% endif %}
-                                    </{% if linktwo %}a{% else %}span{% endif %}>
-                                </div>
+                  {% if activetwo %}
+                    <div class="grid__item {{ grid_item_width }}">
+                      <div class="grid-view-item" style="margin:0px;padding:0px;">
+                        <div class="grid-view-item" style="margin:0px;padding:0px;">
+                          <{% if linktwo %}a href="{{ linktwo }}"{% else %}span{% endif %} class="grid-view-item__image {% if linktwo %}animsition-link{% endif %}" style="{% if textoverlaytwo %}{% else %}padding-top: 100%;{% endif %}background-image:url({{ imagetwo | img_url: image_size }});background-position:{{ alignmenttwo }};background-size:cover;">
+                            {% if textoverlaytwo %}
+                            <div class="collectionad">
+                              <div class="h4 grid-view-item__title">
+                                {{ titletwo }}
+                              </div>
+                              <div class="grid-view-item__meta">
+                                {{ adcopytwo}}
+                                {% if linktwo %}
+                                <br/><span style="margin-top:10px;" class="btn">{{ adctatwo }}</span>
+                                {% endif %}
                               </div>
                             </div>
+                            {% endif %}
+                            </{% if linktwo %}a{% else %}span{% endif %}>
+                        </div>
+                      </div>
+                    </div>
 	        				{% endif %}
 	        			{% endif %}
 	        		{% endif %}
@@ -200,8 +196,8 @@
 	          {% if product.type == 'Gift Card' %}
               <div class="{{ grid_item_width }}">
 	            {% include 'product-card-grid', grid_image_width: image_size %}
-	          </div>
-              {% else %}
+	            </div>
+            {% else %}
               {% assign color_list = '' %}
               {% for variant in product.variants %}
                 {% if color_list contains variant.option1 and show_variant_colors_only %}
@@ -299,8 +295,9 @@
 	    {% if paginate.pages > 1 %}
 	      {% include 'pagination' %}
 	    {% endif %}
-	  </div>
-	</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endpaginate %}
